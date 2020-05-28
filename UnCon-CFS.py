@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v3.0.5),
-    on Thu 28 May 2020 11:57:48 AM +0430
+    on Thu 28 May 2020 08:38:21 PM +0430
 If you publish work using this script please cite the PsychoPy publications:
     Peirce, JW (2007) PsychoPy - Psychophysics software in Python.
         Journal of Neuroscience Methods, 162(1-2), 8-13.
@@ -103,13 +103,13 @@ def set_sizes():
     global l_s # line size (the width of the line surrounding the stimulus)
     global fix_s  # size of fixation crosses on top of stimuli
     global pic_s  # size of the face (useful when showing smaller face above/below fixation cross)
-    f_s = 340
-    f2_s = 320
-    sq_s = 300
-    sq_f_s = 300
-    l_s = 20
-    fix_s = 70
-    pic_s = sq_s/2
+    f_s = 685
+    f2_s = 665
+    sq_s = 645
+    sq_f_s = 645
+    l_s = 30
+    fix_s = 80
+    pic_s = sq_s
 
 # set_positions()
 # Positions used during the experiment
@@ -132,14 +132,14 @@ def set_positions():
   center_r = -center_l # center of right part of the screen
   s_p = [center_r, 0]
   f_p = [center_l, 0]
-  txt_above_f_p = [center_l+50, -250]
-  txt_below_f_p = [center_l-50, -250]
-  txt_above_s_p = [center_r+50, -250]
-  txt_below_s_p = [center_r-50, -250]
-  line_left_start = (- f_s/2 - 50, 0)
+  txt_above_f_p = [center_l+100, -200]
+  txt_below_f_p = [center_l-100, -200]
+  txt_above_s_p = [center_r+100, -200]
+  txt_below_s_p = [center_r-100, -200]
+  line_left_start = (- f_s/2 - 1000, 0)
   line_left_end =  ( - f_s/2, 0)
   line_right_start = (+ f_s/2, 0) 
-  line_right_end = ( + f_s/2 + 50, 0) 
+  line_right_end = ( + f_s/2 + 1000, 0) 
     
 
 # define timings
@@ -214,15 +214,17 @@ def jittery():
 # flash initialization
 def flash_init(win, position=[0,0], square_size=10, columns=10, rows=10):
     global flash # The flash stimulus (an array of flashing squares)
-    sqsp=30
+    #sqsp=30
     red = [1, -1, -1]
     green = [-1, 1, -1]
     blue = [-1, -1, 1]
     yellow = [1, 0.97, -0.55]
     pink = [1, 0.6, 0.6]
-    color_set = [red, green, blue, yellow, pink]
+    black = [-1, -1, -1]
+    color_set = [red, green, blue, yellow, pink, black]
     cell_number = columns * rows
-    by_color = int(np.floor(float(cell_number)/len(color_set)))     # np.floor returns the next biggest integer (e.g. np.floor of 2.5 is 2)
+    by_color = int(np.floor(float(cell_number)/len(color_set)))     
+    # np.floor returns the next biggest integer (e.g. np.floor of 2.5 is 2)
     # fill an array with colors. Each color should appear approximatively the same number of times.
     f_colors = []
     for c in color_set:
@@ -238,62 +240,14 @@ def flash_init(win, position=[0,0], square_size=10, columns=10, rows=10):
     # fill an array with coordinate for each color square. First square should be at the upper left
     # and next should follow from left to right and up to down.
     xys = []
-    x_left = (1 - columns) * sqsp / 2
-    y_top = (1 - rows) * sqsp / 2
-    #for i in range(1,5):
+    x_left = (1 - columns) * square_size / 2
+    y_top = (1 - rows) * square_size / 2
     for l in range(rows):
         for c in range(columns):
-            r1=(random()-0.5)*sqsp #ariel
-            r2=(random()-0.5)*sqsp
-            xys.append((x_left+r1 + c * sqsp, y_top+r2 + l * sqsp))
+           #r1=(random()-0.5)*square_size #ariel
+           #r2=(random()-0.5)*square_size
+            xys.append((x_left+ c * square_size, y_top+ l * square_size))
     flash = visual.ElementArrayStim(win=win,
-                        fieldPos=position,
-                        fieldShape='sqr',
-                        nElements=cell_number,
-                        sizes=square_size,
-                        xys=xys,
-                        colors=f_colors,
-                        elementTex=None,
-                        elementMask=None,
-                        name='flash',
-                        autoLog=False)
-    #print dir(flash)
-
-def flash_s_init(win, position=[0,0], square_size=10, columns=10, rows=10):
-    global flash_s
-    sqsp=30
-    red = [1, -1, -1]
-    green = [-1, 1, -1]
-    blue = [-1, -1, 1]
-    yellow = [1, 0.97, -0.55]
-    pink = [1, 0.6, 0.6]
-    color_set = [red, green, blue, yellow, pink]
-    cell_number = columns * rows
-    by_color = int(np.floor(float(cell_number)/len(color_set)))     # np.floor returns the next biggest integer (e.g. np.floor of 2.5 is 2)
-    # fill an array with colors. Each color should appear approximatively the same number of times.
-    f_colors = []
-    for c in color_set:
-        for i in range(by_color):
-            f_colors.append(c)
-    shuffle(color_set)
-    i = cell_number - len(f_colors)
-    while i > 0:
-        f_colors.append(color_set[i])
-        i -= 1
-    # randomize color order.
-    shuffle(f_colors)
-    # fill an array with coordinate for each color square. First square should be at the upper left
-    # and next should follow from left to right and up to down.
-    xys = []
-    x_left = (1 - columns) * sqsp / 2
-    y_top = (1 - rows) * sqsp / 2
-    #for i in range(1,5):
-    for l in range(rows):
-        for c in range(columns):
-            r1=(random()-0.5)*sqsp #ariel
-            r2=(random()-0.5)*sqsp
-            xys.append((x_left+r1 + c * sqsp, y_top+r2 + l * sqsp))
-    flash_s = visual.ElementArrayStim(win=win,
                         fieldPos=position,
                         fieldShape='sqr',
                         nElements=cell_number,
@@ -308,34 +262,15 @@ def flash_s_init(win, position=[0,0], square_size=10, columns=10, rows=10):
 # flash stimulus change
 def flash_change():
     global flash
-    global flash_s
-    square_size=30
-    columns=10
-    rows=10
     shuffle(flash.colors)
     flash.setColors(flash.colors)
-    flash_s.setColors(flash.colors)
-    x_left = (1 - columns) * square_size / 2
-    y_top = (1 - rows) * square_size / 2
-    xys=[]
-    for l in range(rows):
-        for c in range(columns):
-            r1=(random()-0.5)*30 #ariel
-            r2=(random()-0.5)*30
-            xys.append((x_left+r1 + c * square_size, y_top+r2 + l * square_size))
-
-    flash.setXYs(xys)
-    flash_s.setXYs(xys)
-
-    #a=flash.setXY
-    
 # initiate colors
 set_colors()
 set_sizes()
 set_positions()
 jittery()
-flash_init(win, f_p, square_size=50, columns=10, rows=10)
-flash_s_init(win, s_p, square_size=50, columns=10, rows=10)
+flash_init(win, f_p, square_size=60, columns=11, rows=21)
+#flash_s_init(win, s_p, square_size=50, columns=10, rows=10)
 
 # Initialize components for Routine "Instructions"
 InstructionsClock = core.Clock()
@@ -398,93 +333,6 @@ square_f_sq1 = visual.Rect(
     lineWidth=0, lineColor=sc_c, lineColorSpace='rgb',
     fillColor=sc_c, fillColorSpace='rgb',
     opacity=1, depth=-3.0, interpolate=True)
-
-# Initialize components for Routine "SmileOrFrown"
-SmileOrFrownClock = core.Clock()
-frame_s_instblock = visual.Rect(
-    win=win, name='frame_s_instblock',units='pix', 
-    width=(f_s, f_s)[0], height=(f_s, f_s)[1],
-    ori=0, pos=s_p,
-    lineWidth=0, lineColor=f_c, lineColorSpace='rgb',
-    fillColor=f_c, fillColorSpace='rgb',
-    opacity=1, depth=0.0, interpolate=True)
-frame2_s_instblock = visual.Rect(
-    win=win, name='frame2_s_instblock',units='pix', 
-    width=(f2_s, f2_s)[0], height=(f2_s, f2_s)[1],
-    ori=0, pos=s_p,
-    lineWidth=0, lineColor=f2_c, lineColorSpace='rgb',
-    fillColor=f2_c, fillColorSpace='rgb',
-    opacity=1, depth=-1.0, interpolate=True)
-square_s_instblock = visual.Rect(
-    win=win, name='square_s_instblock',units='pix', 
-    width=(sq_s, sq_s)[0], height=(sq_s, sq_s)[1],
-    ori=0, pos=s_p,
-    lineWidth=0, lineColor=sc_c, lineColorSpace='rgb',
-    fillColor=sc_c, fillColorSpace='rgb',
-    opacity=1, depth=-2.0, interpolate=True)
-frame_f_instblock = visual.Rect(
-    win=win, name='frame_f_instblock',units='pix', 
-    width=(f_s, f_s)[0], height=(f_s, f_s)[1],
-    ori=0, pos=f_p,
-    lineWidth=0, lineColor=f_c, lineColorSpace='rgb',
-    fillColor=f_c, fillColorSpace='rgb',
-    opacity=1, depth=-3.0, interpolate=True)
-frame2_f_instblock = visual.Rect(
-    win=win, name='frame2_f_instblock',units='pix', 
-    width=(f2_s, f2_s)[0], height=(f2_s, f2_s)[1],
-    ori=0, pos=f_p,
-    lineWidth=0, lineColor=f2_c, lineColorSpace='rgb',
-    fillColor=f2_c, fillColorSpace='rgb',
-    opacity=1, depth=-4.0, interpolate=True)
-square_f_instblock = visual.Rect(
-    win=win, name='square_f_instblock',units='pix', 
-    width=(sq_s, sq_s)[0], height=(sq_s, sq_s)[1],
-    ori=0, pos=f_p,
-    lineWidth=0, lineColor=sc_c, lineColorSpace='rgb',
-    fillColor=sc_c, fillColorSpace='rgb',
-    opacity=1, depth=-5.0, interpolate=True)
-textinstrblock_f = visual.TextStim(win=win, name='textinstrblock_f',
-    text=None,
-    font='Arial',
-    pos=f_p, height=30, wrapWidth=float(win.size[0]/3), ori=0, 
-    color='white', colorSpace='rgb', opacity=1, 
-    languageStyle='LTR',
-    depth=-6.0);
-textinstrblock_s = visual.TextStim(win=win, name='textinstrblock_s',
-    text=None,
-    font='Arial',
-    pos=s_p, height=30, wrapWidth=float(win.size[0]/3), ori=0, 
-    color='white', colorSpace='rgb', opacity=1, 
-    languageStyle='LTR',
-    depth=-7.0);
-button_above_f = visual.TextStim(win=win, name='button_above_f',
-    text='+',
-    font='Arial',
-    pos=txt_above_f_p, height=fix_s, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1, 
-    languageStyle='LTR',
-    depth=-8.0);
-button_below_f = visual.TextStim(win=win, name='button_below_f',
-    text='+',
-    font='Arial',
-    pos=txt_below_f_p, height=fix_s, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1, 
-    languageStyle='LTR',
-    depth=-9.0);
-button_above_s = visual.TextStim(win=win, name='button_above_s',
-    text='+',
-    font='Arial',
-    pos=txt_above_s_p, height=fix_s, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1, 
-    languageStyle='LTR',
-    depth=-10.0);
-button_below_s = visual.TextStim(win=win, name='button_below_s',
-    text='+',
-    font='Arial',
-    pos=txt_below_s_p, height=fix_s, wrapWidth=None, ori=0, 
-    color='white', colorSpace='rgb', opacity=1, 
-    languageStyle='LTR',
-    depth=-11.0);
 
 # Initialize components for Routine "pause"
 pauseClock = core.Clock()
@@ -562,128 +410,148 @@ textrelax_s = visual.TextStim(win=win, name='textrelax_s',
     languageStyle='LTR',
     depth=-7.0);
 
-# Initialize components for Routine "trial"
-trialClock = core.Clock()
-line_left_s_i = visual.Line(
-    win=win, name='line_left_s_i',units='pix', 
-    start=(-(line_left_start + line_left_end)[0]/2.0, 0), end=(+(line_left_start + line_left_end)[0]/2.0, 0),
-    ori=0, pos=s_p,
-    lineWidth=10, lineColor=f_c, lineColorSpace='rgb',
-    fillColor=None, fillColorSpace='rgb',
-    opacity=1, depth=0.0, interpolate=True)
-line_right_s_i = visual.Line(
-    win=win, name='line_right_s_i',units='pix', 
-    start=(-(line_right_start + line_right_end)[0]/2.0, 0), end=(+(line_right_start + line_right_end)[0]/2.0, 0),
-    ori=0, pos=s_p,
-    lineWidth=10, lineColor=f_c, lineColorSpace='rgb',
-    fillColor=None, fillColorSpace='rgb',
-    opacity=1, depth=-1.0, interpolate=True)
-line_above_s_i = visual.Line(
-    win=win, name='line_above_s_i',units='pix', 
-    start=(-(line_left_start + line_left_end)[0]/2.0, 0), end=(+(line_left_start + line_left_end)[0]/2.0, 0),
-    ori=90, pos=s_p,
-    lineWidth=10, lineColor=f_c, lineColorSpace='rgb',
-    fillColor=None, fillColorSpace='rgb',
-    opacity=1, depth=-2.0, interpolate=True)
-line_below_s_i = visual.Line(
-    win=win, name='line_below_s_i',units='pix', 
-    start=(-(line_right_start + line_right_end)[0]/2.0, 0), end=(+(line_right_start + line_right_end)[0]/2.0, 0),
-    ori=90, pos=s_p,
-    lineWidth=10, lineColor=f_c, lineColorSpace='rgb',
-    fillColor=None, fillColorSpace='rgb',
-    opacity=1, depth=-3.0, interpolate=True)
-line_left_f_i = visual.Line(
-    win=win, name='line_left_f_i',units='pix', 
-    start=(-(line_left_start + line_left_end)[0]/2.0, 0), end=(+(line_left_start + line_left_end)[0]/2.0, 0),
-    ori=0, pos=f_p,
-    lineWidth=10, lineColor=f_c, lineColorSpace='rgb',
-    fillColor=None, fillColorSpace='rgb',
-    opacity=1, depth=-4.0, interpolate=True)
-line_right_f_i = visual.Line(
-    win=win, name='line_right_f_i',units='pix', 
-    start=(-(line_right_start + line_right_end)[0]/2.0, 0), end=(+(line_right_start + line_right_end)[0]/2.0, 0),
-    ori=0, pos=f_p,
-    lineWidth=10, lineColor=f_c, lineColorSpace='rgb',
-    fillColor=None, fillColorSpace='rgb',
-    opacity=1, depth=-5.0, interpolate=True)
-line_above_f_i = visual.Line(
-    win=win, name='line_above_f_i',units='pix', 
-    start=(-(line_left_start + line_left_end)[0]/2.0, 0), end=(+(line_left_start + line_left_end)[0]/2.0, 0),
-    ori=90, pos=f_p,
-    lineWidth=10, lineColor=f_c, lineColorSpace='rgb',
-    fillColor=None, fillColorSpace='rgb',
-    opacity=1, depth=-6.0, interpolate=True)
-line_below_f_i = visual.Line(
-    win=win, name='line_below_f_i',units='pix', 
-    start=(-(line_right_start + line_right_end)[0]/2.0, 0), end=(+(line_right_start + line_right_end)[0]/2.0, 0),
-    ori=90, pos=f_p,
-    lineWidth=10, lineColor=f_c, lineColorSpace='rgb',
-    fillColor=None, fillColorSpace='rgb',
-    opacity=1, depth=-7.0, interpolate=True)
+# Initialize components for Routine "cfs"
+cfsClock = core.Clock()
 frame_s_i = visual.Rect(
     win=win, name='frame_s_i',units='pix', 
     width=(f_s, f_s)[0], height=(f_s, f_s)[1],
     ori=0, pos=s_p,
     lineWidth=0, lineColor=f_c, lineColorSpace='rgb',
     fillColor=f_c, fillColorSpace='rgb',
-    opacity=1, depth=-8.0, interpolate=True)
+    opacity=1, depth=0.0, interpolate=True)
 frame2_s_i = visual.Rect(
     win=win, name='frame2_s_i',units='pix', 
     width=(f2_s, f2_s)[0], height=(f2_s, f2_s)[1],
     ori=0, pos=s_p,
     lineWidth=0, lineColor=f2_c, lineColorSpace='rgb',
     fillColor=f2_c, fillColorSpace='rgb',
-    opacity=1, depth=-9.0, interpolate=True)
+    opacity=1, depth=-1.0, interpolate=True)
 square_s_i = visual.Rect(
     win=win, name='square_s_i',units='pix', 
     width=(sq_s, sq_s)[0], height=(sq_s, sq_s)[1],
     ori=0, pos=s_p,
     lineWidth=0, lineColor=sc_c, lineColorSpace='rgb',
     fillColor=sc_c, fillColorSpace='rgb',
-    opacity=1, depth=-10.0, interpolate=True)
-frame_f_i = visual.Rect(
-    win=win, name='frame_f_i',units='pix', 
-    width=(f_s, f_s)[0], height=(f_s, f_s)[1],
-    ori=0, pos=f_p,
-    lineWidth=0, lineColor=f_c, lineColorSpace='rgb',
-    fillColor=f_c, fillColorSpace='rgb',
-    opacity=1, depth=-11.0, interpolate=True)
-frame2_f_i = visual.Rect(
-    win=win, name='frame2_f_i',units='pix', 
-    width=(f2_s, f2_s)[0], height=(f2_s, f2_s)[1],
-    ori=0, pos=f_p,
-    lineWidth=0, lineColor=f2_c, lineColorSpace='rgb',
-    fillColor=f2_c, fillColorSpace='rgb',
-    opacity=1, depth=-12.0, interpolate=True)
-square_f_sq = visual.Rect(
-    win=win, name='square_f_sq',units='pix', 
-    width=(sq_s,sq_s)[0], height=(sq_s,sq_s)[1],
-    ori=0, pos=f_p,
-    lineWidth=0, lineColor=sc_c, lineColorSpace='rgb',
-    fillColor=sc_c, fillColorSpace='rgb',
-    opacity=1, depth=-13.0, interpolate=True)
+    opacity=1, depth=-2.0, interpolate=True)
+image_flash = visual.ImageStim(
+    win=win, name='image_flash',
+    image=None, mask=None,
+    ori=0, pos=f_p, size=(sq_s, sq_s),
+    color=0.06, colorSpace='rgb', opacity=1,
+    flipHoriz=False, flipVert=False,
+    texRes=128, interpolate=True, depth=-3.0)
+
 image = visual.ImageStim(
     win=win, name='image',
     image='sin', mask=None,
     ori=0, pos=s_p, size=pic_s,
     color=[1,1,1], colorSpace='rgb', opacity=1,
     flipHoriz=False, flipVert=False,
-    texRes=128, interpolate=True, depth=-14.0)
-
+    texRes=128, interpolate=True, depth=-5.0)
 fix_cross_stim_side = visual.TextStim(win=win, name='fix_cross_stim_side',
     text='+',
     font='Arial',
     pos=s_p, height=fix_s, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=-16.0);
+    depth=-6.0);
 fix_cross_flash_side = visual.TextStim(win=win, name='fix_cross_flash_side',
     text='+',
     font='Arial',
     pos=f_p, height=fix_s, wrapWidth=None, ori=0, 
     color='black', colorSpace='rgb', opacity=1, 
     languageStyle='LTR',
-    depth=-17.0);
+    depth=-7.0);
+
+# Initialize components for Routine "blank"
+blankClock = core.Clock()
+backblank_f = visual.Rect(
+    win=win, name='backblank_f',units='pix', 
+    width=(f_s, f_s)[0], height=(f_s, f_s)[1],
+    ori=0, pos=f_p,
+    lineWidth=1, lineColor=sc_c, lineColorSpace='rgb',
+    fillColor=sc_c, fillColorSpace='rgb',
+    opacity=1, depth=0.0, interpolate=True)
+backblank_s = visual.Rect(
+    win=win, name='backblank_s',
+    width=(f_s, f_s)[0], height=(f_s, f_s)[1],
+    ori=0, pos=s_p,
+    lineWidth=1, lineColor=sc_c, lineColorSpace='rgb',
+    fillColor=sc_c, fillColorSpace='rgb',
+    opacity=1, depth=-1.0, interpolate=True)
+text_blank_s = visual.TextStim(win=win, name='text_blank_s',
+    text=None,
+    font='Arial',
+    pos=s_p, height=0.1, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=-2.0);
+text_blank_f = visual.TextStim(win=win, name='text_blank_f',
+    text=None,
+    font='Arial',
+    pos=s_p, height=0.1, wrapWidth=None, ori=0, 
+    color='white', colorSpace='rgb', opacity=1, 
+    languageStyle='LTR',
+    depth=-3.0);
+
+# Initialize components for Routine "Tweet"
+TweetClock = core.Clock()
+frame_tw_s = visual.Rect(
+    win=win, name='frame_tw_s',units='pix', 
+    width=(f_s, f_s)[0], height=(f_s, f_s)[1],
+    ori=0, pos=s_p,
+    lineWidth=0, lineColor=f_c, lineColorSpace='rgb',
+    fillColor=f_c, fillColorSpace='rgb',
+    opacity=1, depth=0.0, interpolate=True)
+frame_tw_f = visual.Rect(
+    win=win, name='frame_tw_f',units='pix', 
+    width=(f_s, f_s)[0], height=(f_s, f_s)[1],
+    ori=0, pos=f_p,
+    lineWidth=0, lineColor=f_c, lineColorSpace='rgb',
+    fillColor=f_c, fillColorSpace='rgb',
+    opacity=1, depth=-1.0, interpolate=True)
+frame2_tw_s = visual.Rect(
+    win=win, name='frame2_tw_s',
+    width=(f2_s, f2_s)[0], height=(f2_s, f2_s)[1],
+    ori=0, pos=s_p,
+    lineWidth=0, lineColor=f2_c, lineColorSpace='rgb',
+    fillColor=f2_c, fillColorSpace='rgb',
+    opacity=1, depth=-2.0, interpolate=True)
+frame2_tw_f = visual.Rect(
+    win=win, name='frame2_tw_f',units='pix', 
+    width=(f2_s, f2_s)[0], height=(f2_s, f2_s)[1],
+    ori=0, pos=f_p,
+    lineWidth=0, lineColor=f2_c, lineColorSpace='rgb',
+    fillColor=f2_c, fillColorSpace='rgb',
+    opacity=1, depth=-3.0, interpolate=True)
+square_tw_s = visual.Rect(
+    win=win, name='square_tw_s',units='pix', 
+    width=(sq_s, sq_s)[0], height=(sq_s, sq_s)[1],
+    ori=0, pos=s_p,
+    lineWidth=0, lineColor=sc_c, lineColorSpace='rgb',
+    fillColor=sc_c, fillColorSpace='rgb',
+    opacity=1, depth=-4.0, interpolate=True)
+square_tw_f = visual.Rect(
+    win=win, name='square_tw_f',units='pix', 
+    width=(sq_s,sq_s)[0], height=(sq_s,sq_s)[1],
+    ori=0, pos=f_p,
+    lineWidth=0, lineColor=sc_c, lineColorSpace='rgb',
+    fillColor=sc_c, fillColorSpace='rgb',
+    opacity=1, depth=-5.0, interpolate=True)
+text_tweet_s1 = visual.TextStim(win=win, name='text_tweet_s1',
+    text='default text',
+    font='Nazli',
+    pos=s_p, height=30, wrapWidth=float(win.size[0]/3), ori=0, 
+    color='white', colorSpace='rgb', opacity=1, 
+    languageStyle='Arabic',
+    depth=-6.0);
+text_tweet_f1 = visual.TextStim(win=win, name='text_tweet_f1',
+    text='default text',
+    font='Nazli',
+    pos=f_p, height=30, wrapWidth=float(win.size[0]/3), ori=0, 
+    color='white', colorSpace='rgb', opacity=1, 
+    languageStyle='Arabic',
+    depth=-7.0);
 
 # Initialize components for Routine "thanks"
 thanksClock = core.Clock()
@@ -1011,205 +879,6 @@ thisExp.nextEntry()
 # the Routine "calibration" was not non-slip safe, so reset the non-slip timer
 routineTimer.reset()
 
-# ------Prepare to start Routine "SmileOrFrown"-------
-t = 0
-SmileOrFrownClock.reset()  # clock
-frameN = -1
-continueRoutine = True
-# update component parameters for each repeat
-key_resp_SmileOrFrown = event.BuilderKeyResponse()
-# keep track of which components have finished
-SmileOrFrownComponents = [frame_s_instblock, frame2_s_instblock, square_s_instblock, frame_f_instblock, frame2_f_instblock, square_f_instblock, textinstrblock_f, textinstrblock_s, button_above_f, button_below_f, button_above_s, button_below_s, key_resp_SmileOrFrown]
-for thisComponent in SmileOrFrownComponents:
-    thisComponent.tStart = None
-    thisComponent.tStop = None
-    thisComponent.tStartRefresh = None
-    thisComponent.tStopRefresh = None
-    if hasattr(thisComponent, 'status'):
-        thisComponent.status = NOT_STARTED
-
-# -------Start Routine "SmileOrFrown"-------
-while continueRoutine:
-    # get current time
-    t = SmileOrFrownClock.getTime()
-    frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
-    # update/draw components on each frame
-    
-    # *frame_s_instblock* updates
-    if t >= 0.0 and frame_s_instblock.status == NOT_STARTED:
-        # keep track of start time/frame for later
-        frame_s_instblock.tStart = t  # not accounting for scr refresh
-        frame_s_instblock.frameNStart = frameN  # exact frame index
-        win.timeOnFlip(frame_s_instblock, 'tStartRefresh')  # time at next scr refresh
-        frame_s_instblock.setAutoDraw(True)
-    
-    # *frame2_s_instblock* updates
-    if t >= 0.0 and frame2_s_instblock.status == NOT_STARTED:
-        # keep track of start time/frame for later
-        frame2_s_instblock.tStart = t  # not accounting for scr refresh
-        frame2_s_instblock.frameNStart = frameN  # exact frame index
-        win.timeOnFlip(frame2_s_instblock, 'tStartRefresh')  # time at next scr refresh
-        frame2_s_instblock.setAutoDraw(True)
-    
-    # *square_s_instblock* updates
-    if t >= 0.0 and square_s_instblock.status == NOT_STARTED:
-        # keep track of start time/frame for later
-        square_s_instblock.tStart = t  # not accounting for scr refresh
-        square_s_instblock.frameNStart = frameN  # exact frame index
-        win.timeOnFlip(square_s_instblock, 'tStartRefresh')  # time at next scr refresh
-        square_s_instblock.setAutoDraw(True)
-    
-    # *frame_f_instblock* updates
-    if t >= 0.0 and frame_f_instblock.status == NOT_STARTED:
-        # keep track of start time/frame for later
-        frame_f_instblock.tStart = t  # not accounting for scr refresh
-        frame_f_instblock.frameNStart = frameN  # exact frame index
-        win.timeOnFlip(frame_f_instblock, 'tStartRefresh')  # time at next scr refresh
-        frame_f_instblock.setAutoDraw(True)
-    
-    # *frame2_f_instblock* updates
-    if t >= 0.0 and frame2_f_instblock.status == NOT_STARTED:
-        # keep track of start time/frame for later
-        frame2_f_instblock.tStart = t  # not accounting for scr refresh
-        frame2_f_instblock.frameNStart = frameN  # exact frame index
-        win.timeOnFlip(frame2_f_instblock, 'tStartRefresh')  # time at next scr refresh
-        frame2_f_instblock.setAutoDraw(True)
-    
-    # *square_f_instblock* updates
-    if t >= 0.0 and square_f_instblock.status == NOT_STARTED:
-        # keep track of start time/frame for later
-        square_f_instblock.tStart = t  # not accounting for scr refresh
-        square_f_instblock.frameNStart = frameN  # exact frame index
-        win.timeOnFlip(square_f_instblock, 'tStartRefresh')  # time at next scr refresh
-        square_f_instblock.setAutoDraw(True)
-    
-    # *textinstrblock_f* updates
-    if t >= 0.0 and textinstrblock_f.status == NOT_STARTED:
-        # keep track of start time/frame for later
-        textinstrblock_f.tStart = t  # not accounting for scr refresh
-        textinstrblock_f.frameNStart = frameN  # exact frame index
-        win.timeOnFlip(textinstrblock_f, 'tStartRefresh')  # time at next scr refresh
-        textinstrblock_f.setAutoDraw(True)
-    
-    # *textinstrblock_s* updates
-    if t >= 0.0 and textinstrblock_s.status == NOT_STARTED:
-        # keep track of start time/frame for later
-        textinstrblock_s.tStart = t  # not accounting for scr refresh
-        textinstrblock_s.frameNStart = frameN  # exact frame index
-        win.timeOnFlip(textinstrblock_s, 'tStartRefresh')  # time at next scr refresh
-        textinstrblock_s.setAutoDraw(True)
-    
-    # *button_above_f* updates
-    if t >= 0.0 and button_above_f.status == NOT_STARTED:
-        # keep track of start time/frame for later
-        button_above_f.tStart = t  # not accounting for scr refresh
-        button_above_f.frameNStart = frameN  # exact frame index
-        win.timeOnFlip(button_above_f, 'tStartRefresh')  # time at next scr refresh
-        button_above_f.setAutoDraw(True)
-    
-    # *button_below_f* updates
-    if t >= 0.0 and button_below_f.status == NOT_STARTED:
-        # keep track of start time/frame for later
-        button_below_f.tStart = t  # not accounting for scr refresh
-        button_below_f.frameNStart = frameN  # exact frame index
-        win.timeOnFlip(button_below_f, 'tStartRefresh')  # time at next scr refresh
-        button_below_f.setAutoDraw(True)
-    
-    # *button_above_s* updates
-    if t >= 0.0 and button_above_s.status == NOT_STARTED:
-        # keep track of start time/frame for later
-        button_above_s.tStart = t  # not accounting for scr refresh
-        button_above_s.frameNStart = frameN  # exact frame index
-        win.timeOnFlip(button_above_s, 'tStartRefresh')  # time at next scr refresh
-        button_above_s.setAutoDraw(True)
-    
-    # *button_below_s* updates
-    if t >= 0.0 and button_below_s.status == NOT_STARTED:
-        # keep track of start time/frame for later
-        button_below_s.tStart = t  # not accounting for scr refresh
-        button_below_s.frameNStart = frameN  # exact frame index
-        win.timeOnFlip(button_below_s, 'tStartRefresh')  # time at next scr refresh
-        button_below_s.setAutoDraw(True)
-    
-    # *key_resp_SmileOrFrown* updates
-    if t >= 0.0 and key_resp_SmileOrFrown.status == NOT_STARTED:
-        # keep track of start time/frame for later
-        key_resp_SmileOrFrown.tStart = t  # not accounting for scr refresh
-        key_resp_SmileOrFrown.frameNStart = frameN  # exact frame index
-        win.timeOnFlip(key_resp_SmileOrFrown, 'tStartRefresh')  # time at next scr refresh
-        key_resp_SmileOrFrown.status = STARTED
-        # keyboard checking is just starting
-        win.callOnFlip(key_resp_SmileOrFrown.clock.reset)  # t=0 on next screen flip
-        event.clearEvents(eventType='keyboard')
-    if key_resp_SmileOrFrown.status == STARTED:
-        theseKeys = event.getKeys(keyList=['space'])
-        
-        # check for quit:
-        if "escape" in theseKeys:
-            endExpNow = True
-        if len(theseKeys) > 0:  # at least one key was pressed
-            key_resp_SmileOrFrown.keys = theseKeys[-1]  # just the last key pressed
-            key_resp_SmileOrFrown.rt = key_resp_SmileOrFrown.clock.getTime()
-            # a response ends the routine
-            continueRoutine = False
-    
-    # check for quit (typically the Esc key)
-    if endExpNow or event.getKeys(keyList=["escape"]):
-        core.quit()
-    
-    # check if all components have finished
-    if not continueRoutine:  # a component has requested a forced-end of Routine
-        break
-    continueRoutine = False  # will revert to True if at least one component still running
-    for thisComponent in SmileOrFrownComponents:
-        if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
-            continueRoutine = True
-            break  # at least one component has not yet finished
-    
-    # refresh the screen
-    if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-        win.flip()
-
-# -------Ending Routine "SmileOrFrown"-------
-for thisComponent in SmileOrFrownComponents:
-    if hasattr(thisComponent, "setAutoDraw"):
-        thisComponent.setAutoDraw(False)
-thisExp.addData('frame_s_instblock.started', frame_s_instblock.tStartRefresh)
-thisExp.addData('frame_s_instblock.stopped', frame_s_instblock.tStopRefresh)
-thisExp.addData('frame2_s_instblock.started', frame2_s_instblock.tStartRefresh)
-thisExp.addData('frame2_s_instblock.stopped', frame2_s_instblock.tStopRefresh)
-thisExp.addData('square_s_instblock.started', square_s_instblock.tStartRefresh)
-thisExp.addData('square_s_instblock.stopped', square_s_instblock.tStopRefresh)
-thisExp.addData('frame_f_instblock.started', frame_f_instblock.tStartRefresh)
-thisExp.addData('frame_f_instblock.stopped', frame_f_instblock.tStopRefresh)
-thisExp.addData('frame2_f_instblock.started', frame2_f_instblock.tStartRefresh)
-thisExp.addData('frame2_f_instblock.stopped', frame2_f_instblock.tStopRefresh)
-thisExp.addData('square_f_instblock.started', square_f_instblock.tStartRefresh)
-thisExp.addData('square_f_instblock.stopped', square_f_instblock.tStopRefresh)
-thisExp.addData('textinstrblock_f.started', textinstrblock_f.tStartRefresh)
-thisExp.addData('textinstrblock_f.stopped', textinstrblock_f.tStopRefresh)
-thisExp.addData('textinstrblock_s.started', textinstrblock_s.tStartRefresh)
-thisExp.addData('textinstrblock_s.stopped', textinstrblock_s.tStopRefresh)
-thisExp.addData('button_above_f.started', button_above_f.tStartRefresh)
-thisExp.addData('button_above_f.stopped', button_above_f.tStopRefresh)
-thisExp.addData('button_below_f.started', button_below_f.tStartRefresh)
-thisExp.addData('button_below_f.stopped', button_below_f.tStopRefresh)
-thisExp.addData('button_above_s.started', button_above_s.tStartRefresh)
-thisExp.addData('button_above_s.stopped', button_above_s.tStopRefresh)
-thisExp.addData('button_below_s.started', button_below_s.tStartRefresh)
-thisExp.addData('button_below_s.stopped', button_below_s.tStopRefresh)
-# check responses
-if key_resp_SmileOrFrown.keys in ['', [], None]:  # No response was made
-    key_resp_SmileOrFrown.keys=None
-thisExp.addData('key_resp_SmileOrFrown.keys',key_resp_SmileOrFrown.keys)
-if key_resp_SmileOrFrown.keys != None:  # we had a response
-    thisExp.addData('key_resp_SmileOrFrown.rt', key_resp_SmileOrFrown.rt)
-thisExp.addData('key_resp_SmileOrFrown.started', key_resp_SmileOrFrown.tStartRefresh)
-thisExp.addData('key_resp_SmileOrFrown.stopped', key_resp_SmileOrFrown.tStopRefresh)
-thisExp.nextEntry()
-# the Routine "SmileOrFrown" was not non-slip safe, so reset the non-slip timer
-routineTimer.reset()
-
 # set up handler to look after randomisation of conditions etc
 trials_2 = data.TrialHandler(nReps=1, method='random', 
     extraInfo=expInfo, originPath=-1,
@@ -1474,19 +1143,19 @@ for thisTrial_2 in trials_2:
     # the Routine "Relax" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     
-    # ------Prepare to start Routine "trial"-------
+    # ------Prepare to start Routine "cfs"-------
     t = 0
-    trialClock.reset()  # clock
+    cfsClock.reset()  # clock
     frameN = -1
     continueRoutine = True
+    routineTimer.add(0.500000)
     # update component parameters for each repeat
-    image.setImage(Image)
     # flash begin routine
     f_change = 0
-    key_resp_image = event.BuilderKeyResponse()
+    image.setImage(Image)
     # keep track of which components have finished
-    trialComponents = [line_left_s_i, line_right_s_i, line_above_s_i, line_below_s_i, line_left_f_i, line_right_f_i, line_above_f_i, line_below_f_i, frame_s_i, frame2_s_i, square_s_i, frame_f_i, frame2_f_i, square_f_sq, image, fix_cross_stim_side, fix_cross_flash_side, key_resp_image]
-    for thisComponent in trialComponents:
+    cfsComponents = [frame_s_i, frame2_s_i, square_s_i, image_flash, image, fix_cross_stim_side, fix_cross_flash_side]
+    for thisComponent in cfsComponents:
         thisComponent.tStart = None
         thisComponent.tStop = None
         thisComponent.tStartRefresh = None
@@ -1494,76 +1163,12 @@ for thisTrial_2 in trials_2:
         if hasattr(thisComponent, 'status'):
             thisComponent.status = NOT_STARTED
     
-    # -------Start Routine "trial"-------
-    while continueRoutine:
+    # -------Start Routine "cfs"-------
+    while continueRoutine and routineTimer.getTime() > 0:
         # get current time
-        t = trialClock.getTime()
+        t = cfsClock.getTime()
         frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
         # update/draw components on each frame
-        
-        # *line_left_s_i* updates
-        if t >= 0.0 and line_left_s_i.status == NOT_STARTED:
-            # keep track of start time/frame for later
-            line_left_s_i.tStart = t  # not accounting for scr refresh
-            line_left_s_i.frameNStart = frameN  # exact frame index
-            win.timeOnFlip(line_left_s_i, 'tStartRefresh')  # time at next scr refresh
-            line_left_s_i.setAutoDraw(True)
-        
-        # *line_right_s_i* updates
-        if t >= 0.0 and line_right_s_i.status == NOT_STARTED:
-            # keep track of start time/frame for later
-            line_right_s_i.tStart = t  # not accounting for scr refresh
-            line_right_s_i.frameNStart = frameN  # exact frame index
-            win.timeOnFlip(line_right_s_i, 'tStartRefresh')  # time at next scr refresh
-            line_right_s_i.setAutoDraw(True)
-        
-        # *line_above_s_i* updates
-        if t >= 0.0 and line_above_s_i.status == NOT_STARTED:
-            # keep track of start time/frame for later
-            line_above_s_i.tStart = t  # not accounting for scr refresh
-            line_above_s_i.frameNStart = frameN  # exact frame index
-            win.timeOnFlip(line_above_s_i, 'tStartRefresh')  # time at next scr refresh
-            line_above_s_i.setAutoDraw(True)
-        
-        # *line_below_s_i* updates
-        if t >= 0.0 and line_below_s_i.status == NOT_STARTED:
-            # keep track of start time/frame for later
-            line_below_s_i.tStart = t  # not accounting for scr refresh
-            line_below_s_i.frameNStart = frameN  # exact frame index
-            win.timeOnFlip(line_below_s_i, 'tStartRefresh')  # time at next scr refresh
-            line_below_s_i.setAutoDraw(True)
-        
-        # *line_left_f_i* updates
-        if t >= 0.0 and line_left_f_i.status == NOT_STARTED:
-            # keep track of start time/frame for later
-            line_left_f_i.tStart = t  # not accounting for scr refresh
-            line_left_f_i.frameNStart = frameN  # exact frame index
-            win.timeOnFlip(line_left_f_i, 'tStartRefresh')  # time at next scr refresh
-            line_left_f_i.setAutoDraw(True)
-        
-        # *line_right_f_i* updates
-        if t >= 0.0 and line_right_f_i.status == NOT_STARTED:
-            # keep track of start time/frame for later
-            line_right_f_i.tStart = t  # not accounting for scr refresh
-            line_right_f_i.frameNStart = frameN  # exact frame index
-            win.timeOnFlip(line_right_f_i, 'tStartRefresh')  # time at next scr refresh
-            line_right_f_i.setAutoDraw(True)
-        
-        # *line_above_f_i* updates
-        if t >= 0.0 and line_above_f_i.status == NOT_STARTED:
-            # keep track of start time/frame for later
-            line_above_f_i.tStart = t  # not accounting for scr refresh
-            line_above_f_i.frameNStart = frameN  # exact frame index
-            win.timeOnFlip(line_above_f_i, 'tStartRefresh')  # time at next scr refresh
-            line_above_f_i.setAutoDraw(True)
-        
-        # *line_below_f_i* updates
-        if t >= 0.0 and line_below_f_i.status == NOT_STARTED:
-            # keep track of start time/frame for later
-            line_below_f_i.tStart = t  # not accounting for scr refresh
-            line_below_f_i.frameNStart = frameN  # exact frame index
-            win.timeOnFlip(line_below_f_i, 'tStartRefresh')  # time at next scr refresh
-            line_below_f_i.setAutoDraw(True)
         
         # *frame_s_i* updates
         if t >= 0.0 and frame_s_i.status == NOT_STARTED:
@@ -1572,6 +1177,13 @@ for thisTrial_2 in trials_2:
             frame_s_i.frameNStart = frameN  # exact frame index
             win.timeOnFlip(frame_s_i, 'tStartRefresh')  # time at next scr refresh
             frame_s_i.setAutoDraw(True)
+        frameRemains = 0.0 + 0.5- win.monitorFramePeriod * 0.75  # most of one frame period left
+        if frame_s_i.status == STARTED and t >= frameRemains:
+            # keep track of stop time/frame for later
+            frame_s_i.tStop = t  # not accounting for scr refresh
+            frame_s_i.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(frame_s_i, 'tStopRefresh')  # time at next scr refresh
+            frame_s_i.setAutoDraw(False)
         
         # *frame2_s_i* updates
         if t >= 0.0 and frame2_s_i.status == NOT_STARTED:
@@ -1580,6 +1192,13 @@ for thisTrial_2 in trials_2:
             frame2_s_i.frameNStart = frameN  # exact frame index
             win.timeOnFlip(frame2_s_i, 'tStartRefresh')  # time at next scr refresh
             frame2_s_i.setAutoDraw(True)
+        frameRemains = 0.0 + 0.5- win.monitorFramePeriod * 0.75  # most of one frame period left
+        if frame2_s_i.status == STARTED and t >= frameRemains:
+            # keep track of stop time/frame for later
+            frame2_s_i.tStop = t  # not accounting for scr refresh
+            frame2_s_i.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(frame2_s_i, 'tStopRefresh')  # time at next scr refresh
+            frame2_s_i.setAutoDraw(False)
         
         # *square_s_i* updates
         if t >= 0.0 and square_s_i.status == NOT_STARTED:
@@ -1588,30 +1207,34 @@ for thisTrial_2 in trials_2:
             square_s_i.frameNStart = frameN  # exact frame index
             win.timeOnFlip(square_s_i, 'tStartRefresh')  # time at next scr refresh
             square_s_i.setAutoDraw(True)
+        frameRemains = 0.0 + 0.5- win.monitorFramePeriod * 0.75  # most of one frame period left
+        if square_s_i.status == STARTED and t >= frameRemains:
+            # keep track of stop time/frame for later
+            square_s_i.tStop = t  # not accounting for scr refresh
+            square_s_i.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(square_s_i, 'tStopRefresh')  # time at next scr refresh
+            square_s_i.setAutoDraw(False)
         
-        # *frame_f_i* updates
-        if t >= 0.0 and frame_f_i.status == NOT_STARTED:
+        # *image_flash* updates
+        if t >= 0.0 and image_flash.status == NOT_STARTED:
             # keep track of start time/frame for later
-            frame_f_i.tStart = t  # not accounting for scr refresh
-            frame_f_i.frameNStart = frameN  # exact frame index
-            win.timeOnFlip(frame_f_i, 'tStartRefresh')  # time at next scr refresh
-            frame_f_i.setAutoDraw(True)
-        
-        # *frame2_f_i* updates
-        if t >= 0.0 and frame2_f_i.status == NOT_STARTED:
-            # keep track of start time/frame for later
-            frame2_f_i.tStart = t  # not accounting for scr refresh
-            frame2_f_i.frameNStart = frameN  # exact frame index
-            win.timeOnFlip(frame2_f_i, 'tStartRefresh')  # time at next scr refresh
-            frame2_f_i.setAutoDraw(True)
-        
-        # *square_f_sq* updates
-        if t >= 0.0 and square_f_sq.status == NOT_STARTED:
-            # keep track of start time/frame for later
-            square_f_sq.tStart = t  # not accounting for scr refresh
-            square_f_sq.frameNStart = frameN  # exact frame index
-            win.timeOnFlip(square_f_sq, 'tStartRefresh')  # time at next scr refresh
-            square_f_sq.setAutoDraw(True)
+            image_flash.tStart = t  # not accounting for scr refresh
+            image_flash.frameNStart = frameN  # exact frame index
+            win.timeOnFlip(image_flash, 'tStartRefresh')  # time at next scr refresh
+            image_flash.setAutoDraw(True)
+        frameRemains = 0.0 + 0.5- win.monitorFramePeriod * 0.75  # most of one frame period left
+        if image_flash.status == STARTED and t >= frameRemains:
+            # keep track of stop time/frame for later
+            image_flash.tStop = t  # not accounting for scr refresh
+            image_flash.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(image_flash, 'tStopRefresh')  # time at next scr refresh
+            image_flash.setAutoDraw(False)
+        # flash each frame
+        if frameN >= f_change:
+            flash_change()
+            myRand =randint(1,100)
+            f_change += f_t
+        flash.draw()
         
         # *image* updates
         if t >= 0.0 and image.status == NOT_STARTED:
@@ -1620,12 +1243,13 @@ for thisTrial_2 in trials_2:
             image.frameNStart = frameN  # exact frame index
             win.timeOnFlip(image, 'tStartRefresh')  # time at next scr refresh
             image.setAutoDraw(True)
-        # flash each frame
-        if frameN >= f_change:
-            flash_change()
-            myRand =randint(1,100)
-            f_change += f_t
-        flash.draw()
+        frameRemains = 0.0 + 0.5- win.monitorFramePeriod * 0.75  # most of one frame period left
+        if image.status == STARTED and t >= frameRemains:
+            # keep track of stop time/frame for later
+            image.tStop = t  # not accounting for scr refresh
+            image.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(image, 'tStopRefresh')  # time at next scr refresh
+            image.setAutoDraw(False)
         
         # *fix_cross_stim_side* updates
         if t >= 0.0 and fix_cross_stim_side.status == NOT_STARTED:
@@ -1634,6 +1258,13 @@ for thisTrial_2 in trials_2:
             fix_cross_stim_side.frameNStart = frameN  # exact frame index
             win.timeOnFlip(fix_cross_stim_side, 'tStartRefresh')  # time at next scr refresh
             fix_cross_stim_side.setAutoDraw(True)
+        frameRemains = 0.0 + 0.5- win.monitorFramePeriod * 0.75  # most of one frame period left
+        if fix_cross_stim_side.status == STARTED and t >= frameRemains:
+            # keep track of stop time/frame for later
+            fix_cross_stim_side.tStop = t  # not accounting for scr refresh
+            fix_cross_stim_side.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(fix_cross_stim_side, 'tStopRefresh')  # time at next scr refresh
+            fix_cross_stim_side.setAutoDraw(False)
         
         # *fix_cross_flash_side* updates
         if t >= 0.0 and fix_cross_flash_side.status == NOT_STARTED:
@@ -1642,26 +1273,275 @@ for thisTrial_2 in trials_2:
             fix_cross_flash_side.frameNStart = frameN  # exact frame index
             win.timeOnFlip(fix_cross_flash_side, 'tStartRefresh')  # time at next scr refresh
             fix_cross_flash_side.setAutoDraw(True)
+        frameRemains = 0.0 + 0.5- win.monitorFramePeriod * 0.75  # most of one frame period left
+        if fix_cross_flash_side.status == STARTED and t >= frameRemains:
+            # keep track of stop time/frame for later
+            fix_cross_flash_side.tStop = t  # not accounting for scr refresh
+            fix_cross_flash_side.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(fix_cross_flash_side, 'tStopRefresh')  # time at next scr refresh
+            fix_cross_flash_side.setAutoDraw(False)
         
-        # *key_resp_image* updates
-        if t >= 0.0 and key_resp_image.status == NOT_STARTED:
+        # check for quit (typically the Esc key)
+        if endExpNow or event.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in cfsComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # -------Ending Routine "cfs"-------
+    for thisComponent in cfsComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    trials_2.addData('frame_s_i.started', frame_s_i.tStartRefresh)
+    trials_2.addData('frame_s_i.stopped', frame_s_i.tStopRefresh)
+    trials_2.addData('frame2_s_i.started', frame2_s_i.tStartRefresh)
+    trials_2.addData('frame2_s_i.stopped', frame2_s_i.tStopRefresh)
+    trials_2.addData('square_s_i.started', square_s_i.tStartRefresh)
+    trials_2.addData('square_s_i.stopped', square_s_i.tStopRefresh)
+    trials_2.addData('image_flash.started', image_flash.tStartRefresh)
+    trials_2.addData('image_flash.stopped', image_flash.tStopRefresh)
+    
+    trials_2.addData('image.started', image.tStartRefresh)
+    trials_2.addData('image.stopped', image.tStopRefresh)
+    trials_2.addData('fix_cross_stim_side.started', fix_cross_stim_side.tStartRefresh)
+    trials_2.addData('fix_cross_stim_side.stopped', fix_cross_stim_side.tStopRefresh)
+    trials_2.addData('fix_cross_flash_side.started', fix_cross_flash_side.tStartRefresh)
+    trials_2.addData('fix_cross_flash_side.stopped', fix_cross_flash_side.tStopRefresh)
+    
+    # ------Prepare to start Routine "blank"-------
+    t = 0
+    blankClock.reset()  # clock
+    frameN = -1
+    continueRoutine = True
+    routineTimer.add(0.500000)
+    # update component parameters for each repeat
+    # keep track of which components have finished
+    blankComponents = [backblank_f, backblank_s, text_blank_s, text_blank_f]
+    for thisComponent in blankComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    
+    # -------Start Routine "blank"-------
+    while continueRoutine and routineTimer.getTime() > 0:
+        # get current time
+        t = blankClock.getTime()
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *backblank_f* updates
+        if t >= 0.0 and backblank_f.status == NOT_STARTED:
             # keep track of start time/frame for later
-            key_resp_image.tStart = t  # not accounting for scr refresh
-            key_resp_image.frameNStart = frameN  # exact frame index
-            win.timeOnFlip(key_resp_image, 'tStartRefresh')  # time at next scr refresh
-            key_resp_image.status = STARTED
+            backblank_f.tStart = t  # not accounting for scr refresh
+            backblank_f.frameNStart = frameN  # exact frame index
+            win.timeOnFlip(backblank_f, 'tStartRefresh')  # time at next scr refresh
+            backblank_f.setAutoDraw(True)
+        frameRemains = 0.0 + 0.5- win.monitorFramePeriod * 0.75  # most of one frame period left
+        if backblank_f.status == STARTED and t >= frameRemains:
+            # keep track of stop time/frame for later
+            backblank_f.tStop = t  # not accounting for scr refresh
+            backblank_f.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(backblank_f, 'tStopRefresh')  # time at next scr refresh
+            backblank_f.setAutoDraw(False)
+        
+        # *backblank_s* updates
+        if t >= 0.0 and backblank_s.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            backblank_s.tStart = t  # not accounting for scr refresh
+            backblank_s.frameNStart = frameN  # exact frame index
+            win.timeOnFlip(backblank_s, 'tStartRefresh')  # time at next scr refresh
+            backblank_s.setAutoDraw(True)
+        frameRemains = 0.0 + 0.5- win.monitorFramePeriod * 0.75  # most of one frame period left
+        if backblank_s.status == STARTED and t >= frameRemains:
+            # keep track of stop time/frame for later
+            backblank_s.tStop = t  # not accounting for scr refresh
+            backblank_s.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(backblank_s, 'tStopRefresh')  # time at next scr refresh
+            backblank_s.setAutoDraw(False)
+        
+        # *text_blank_s* updates
+        if t >= 0.0 and text_blank_s.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            text_blank_s.tStart = t  # not accounting for scr refresh
+            text_blank_s.frameNStart = frameN  # exact frame index
+            win.timeOnFlip(text_blank_s, 'tStartRefresh')  # time at next scr refresh
+            text_blank_s.setAutoDraw(True)
+        frameRemains = 0.0 + 0.5- win.monitorFramePeriod * 0.75  # most of one frame period left
+        if text_blank_s.status == STARTED and t >= frameRemains:
+            # keep track of stop time/frame for later
+            text_blank_s.tStop = t  # not accounting for scr refresh
+            text_blank_s.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(text_blank_s, 'tStopRefresh')  # time at next scr refresh
+            text_blank_s.setAutoDraw(False)
+        
+        # *text_blank_f* updates
+        if t >= 0.0 and text_blank_f.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            text_blank_f.tStart = t  # not accounting for scr refresh
+            text_blank_f.frameNStart = frameN  # exact frame index
+            win.timeOnFlip(text_blank_f, 'tStartRefresh')  # time at next scr refresh
+            text_blank_f.setAutoDraw(True)
+        frameRemains = 0.0 + 0.5- win.monitorFramePeriod * 0.75  # most of one frame period left
+        if text_blank_f.status == STARTED and t >= frameRemains:
+            # keep track of stop time/frame for later
+            text_blank_f.tStop = t  # not accounting for scr refresh
+            text_blank_f.frameNStop = frameN  # exact frame index
+            win.timeOnFlip(text_blank_f, 'tStopRefresh')  # time at next scr refresh
+            text_blank_f.setAutoDraw(False)
+        
+        # check for quit (typically the Esc key)
+        if endExpNow or event.getKeys(keyList=["escape"]):
+            core.quit()
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in blankComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # -------Ending Routine "blank"-------
+    for thisComponent in blankComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    trials_2.addData('backblank_f.started', backblank_f.tStartRefresh)
+    trials_2.addData('backblank_f.stopped', backblank_f.tStopRefresh)
+    trials_2.addData('backblank_s.started', backblank_s.tStartRefresh)
+    trials_2.addData('backblank_s.stopped', backblank_s.tStopRefresh)
+    trials_2.addData('text_blank_s.started', text_blank_s.tStartRefresh)
+    trials_2.addData('text_blank_s.stopped', text_blank_s.tStopRefresh)
+    trials_2.addData('text_blank_f.started', text_blank_f.tStartRefresh)
+    trials_2.addData('text_blank_f.stopped', text_blank_f.tStopRefresh)
+    
+    # ------Prepare to start Routine "Tweet"-------
+    t = 0
+    TweetClock.reset()  # clock
+    frameN = -1
+    continueRoutine = True
+    # update component parameters for each repeat
+    text_tweet_s1.setText(Tweets)
+    text_tweet_f1.setText(Tweets
+)
+    key_resp_tweet = event.BuilderKeyResponse()
+    # keep track of which components have finished
+    TweetComponents = [frame_tw_s, frame_tw_f, frame2_tw_s, frame2_tw_f, square_tw_s, square_tw_f, text_tweet_s1, text_tweet_f1, key_resp_tweet]
+    for thisComponent in TweetComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    
+    # -------Start Routine "Tweet"-------
+    while continueRoutine:
+        # get current time
+        t = TweetClock.getTime()
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *frame_tw_s* updates
+        if t >= 0.0 and frame_tw_s.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            frame_tw_s.tStart = t  # not accounting for scr refresh
+            frame_tw_s.frameNStart = frameN  # exact frame index
+            win.timeOnFlip(frame_tw_s, 'tStartRefresh')  # time at next scr refresh
+            frame_tw_s.setAutoDraw(True)
+        
+        # *frame_tw_f* updates
+        if t >= 0.0 and frame_tw_f.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            frame_tw_f.tStart = t  # not accounting for scr refresh
+            frame_tw_f.frameNStart = frameN  # exact frame index
+            win.timeOnFlip(frame_tw_f, 'tStartRefresh')  # time at next scr refresh
+            frame_tw_f.setAutoDraw(True)
+        
+        # *frame2_tw_s* updates
+        if t >= 0.0 and frame2_tw_s.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            frame2_tw_s.tStart = t  # not accounting for scr refresh
+            frame2_tw_s.frameNStart = frameN  # exact frame index
+            win.timeOnFlip(frame2_tw_s, 'tStartRefresh')  # time at next scr refresh
+            frame2_tw_s.setAutoDraw(True)
+        
+        # *frame2_tw_f* updates
+        if t >= 0.0 and frame2_tw_f.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            frame2_tw_f.tStart = t  # not accounting for scr refresh
+            frame2_tw_f.frameNStart = frameN  # exact frame index
+            win.timeOnFlip(frame2_tw_f, 'tStartRefresh')  # time at next scr refresh
+            frame2_tw_f.setAutoDraw(True)
+        
+        # *square_tw_s* updates
+        if t >= 0.0 and square_tw_s.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            square_tw_s.tStart = t  # not accounting for scr refresh
+            square_tw_s.frameNStart = frameN  # exact frame index
+            win.timeOnFlip(square_tw_s, 'tStartRefresh')  # time at next scr refresh
+            square_tw_s.setAutoDraw(True)
+        
+        # *square_tw_f* updates
+        if t >= 0.0 and square_tw_f.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            square_tw_f.tStart = t  # not accounting for scr refresh
+            square_tw_f.frameNStart = frameN  # exact frame index
+            win.timeOnFlip(square_tw_f, 'tStartRefresh')  # time at next scr refresh
+            square_tw_f.setAutoDraw(True)
+        
+        # *text_tweet_s1* updates
+        if t >= 0.0 and text_tweet_s1.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            text_tweet_s1.tStart = t  # not accounting for scr refresh
+            text_tweet_s1.frameNStart = frameN  # exact frame index
+            win.timeOnFlip(text_tweet_s1, 'tStartRefresh')  # time at next scr refresh
+            text_tweet_s1.setAutoDraw(True)
+        
+        # *text_tweet_f1* updates
+        if t >= 0.0 and text_tweet_f1.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            text_tweet_f1.tStart = t  # not accounting for scr refresh
+            text_tweet_f1.frameNStart = frameN  # exact frame index
+            win.timeOnFlip(text_tweet_f1, 'tStartRefresh')  # time at next scr refresh
+            text_tweet_f1.setAutoDraw(True)
+        
+        # *key_resp_tweet* updates
+        if t >= 0.0 and key_resp_tweet.status == NOT_STARTED:
+            # keep track of start time/frame for later
+            key_resp_tweet.tStart = t  # not accounting for scr refresh
+            key_resp_tweet.frameNStart = frameN  # exact frame index
+            win.timeOnFlip(key_resp_tweet, 'tStartRefresh')  # time at next scr refresh
+            key_resp_tweet.status = STARTED
             # keyboard checking is just starting
-            win.callOnFlip(key_resp_image.clock.reset)  # t=0 on next screen flip
+            win.callOnFlip(key_resp_tweet.clock.reset)  # t=0 on next screen flip
             event.clearEvents(eventType='keyboard')
-        if key_resp_image.status == STARTED:
-            theseKeys = event.getKeys(keyList=['l', 'a'])
+        if key_resp_tweet.status == STARTED:
+            theseKeys = event.getKeys(keyList=['left', 'right'])
             
             # check for quit:
             if "escape" in theseKeys:
                 endExpNow = True
             if len(theseKeys) > 0:  # at least one key was pressed
-                key_resp_image.keys = theseKeys[-1]  # just the last key pressed
-                key_resp_image.rt = key_resp_image.clock.getTime()
+                key_resp_tweet.keys = theseKeys[-1]  # just the last key pressed
+                key_resp_tweet.rt = key_resp_tweet.clock.getTime()
                 # a response ends the routine
                 continueRoutine = False
         
@@ -1673,7 +1553,7 @@ for thisTrial_2 in trials_2:
         if not continueRoutine:  # a component has requested a forced-end of Routine
             break
         continueRoutine = False  # will revert to True if at least one component still running
-        for thisComponent in trialComponents:
+        for thisComponent in TweetComponents:
             if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
                 continueRoutine = True
                 break  # at least one component has not yet finished
@@ -1682,54 +1562,35 @@ for thisTrial_2 in trials_2:
         if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
             win.flip()
     
-    # -------Ending Routine "trial"-------
-    for thisComponent in trialComponents:
+    # -------Ending Routine "Tweet"-------
+    for thisComponent in TweetComponents:
         if hasattr(thisComponent, "setAutoDraw"):
             thisComponent.setAutoDraw(False)
-    trials_2.addData('line_left_s_i.started', line_left_s_i.tStartRefresh)
-    trials_2.addData('line_left_s_i.stopped', line_left_s_i.tStopRefresh)
-    trials_2.addData('line_right_s_i.started', line_right_s_i.tStartRefresh)
-    trials_2.addData('line_right_s_i.stopped', line_right_s_i.tStopRefresh)
-    trials_2.addData('line_above_s_i.started', line_above_s_i.tStartRefresh)
-    trials_2.addData('line_above_s_i.stopped', line_above_s_i.tStopRefresh)
-    trials_2.addData('line_below_s_i.started', line_below_s_i.tStartRefresh)
-    trials_2.addData('line_below_s_i.stopped', line_below_s_i.tStopRefresh)
-    trials_2.addData('line_left_f_i.started', line_left_f_i.tStartRefresh)
-    trials_2.addData('line_left_f_i.stopped', line_left_f_i.tStopRefresh)
-    trials_2.addData('line_right_f_i.started', line_right_f_i.tStartRefresh)
-    trials_2.addData('line_right_f_i.stopped', line_right_f_i.tStopRefresh)
-    trials_2.addData('line_above_f_i.started', line_above_f_i.tStartRefresh)
-    trials_2.addData('line_above_f_i.stopped', line_above_f_i.tStopRefresh)
-    trials_2.addData('line_below_f_i.started', line_below_f_i.tStartRefresh)
-    trials_2.addData('line_below_f_i.stopped', line_below_f_i.tStopRefresh)
-    trials_2.addData('frame_s_i.started', frame_s_i.tStartRefresh)
-    trials_2.addData('frame_s_i.stopped', frame_s_i.tStopRefresh)
-    trials_2.addData('frame2_s_i.started', frame2_s_i.tStartRefresh)
-    trials_2.addData('frame2_s_i.stopped', frame2_s_i.tStopRefresh)
-    trials_2.addData('square_s_i.started', square_s_i.tStartRefresh)
-    trials_2.addData('square_s_i.stopped', square_s_i.tStopRefresh)
-    trials_2.addData('frame_f_i.started', frame_f_i.tStartRefresh)
-    trials_2.addData('frame_f_i.stopped', frame_f_i.tStopRefresh)
-    trials_2.addData('frame2_f_i.started', frame2_f_i.tStartRefresh)
-    trials_2.addData('frame2_f_i.stopped', frame2_f_i.tStopRefresh)
-    trials_2.addData('square_f_sq.started', square_f_sq.tStartRefresh)
-    trials_2.addData('square_f_sq.stopped', square_f_sq.tStopRefresh)
-    trials_2.addData('image.started', image.tStartRefresh)
-    trials_2.addData('image.stopped', image.tStopRefresh)
-    
-    trials_2.addData('fix_cross_stim_side.started', fix_cross_stim_side.tStartRefresh)
-    trials_2.addData('fix_cross_stim_side.stopped', fix_cross_stim_side.tStopRefresh)
-    trials_2.addData('fix_cross_flash_side.started', fix_cross_flash_side.tStartRefresh)
-    trials_2.addData('fix_cross_flash_side.stopped', fix_cross_flash_side.tStopRefresh)
+    trials_2.addData('frame_tw_s.started', frame_tw_s.tStartRefresh)
+    trials_2.addData('frame_tw_s.stopped', frame_tw_s.tStopRefresh)
+    trials_2.addData('frame_tw_f.started', frame_tw_f.tStartRefresh)
+    trials_2.addData('frame_tw_f.stopped', frame_tw_f.tStopRefresh)
+    trials_2.addData('frame2_tw_s.started', frame2_tw_s.tStartRefresh)
+    trials_2.addData('frame2_tw_s.stopped', frame2_tw_s.tStopRefresh)
+    trials_2.addData('frame2_tw_f.started', frame2_tw_f.tStartRefresh)
+    trials_2.addData('frame2_tw_f.stopped', frame2_tw_f.tStopRefresh)
+    trials_2.addData('square_tw_s.started', square_tw_s.tStartRefresh)
+    trials_2.addData('square_tw_s.stopped', square_tw_s.tStopRefresh)
+    trials_2.addData('square_tw_f.started', square_tw_f.tStartRefresh)
+    trials_2.addData('square_tw_f.stopped', square_tw_f.tStopRefresh)
+    trials_2.addData('text_tweet_s1.started', text_tweet_s1.tStartRefresh)
+    trials_2.addData('text_tweet_s1.stopped', text_tweet_s1.tStopRefresh)
+    trials_2.addData('text_tweet_f1.started', text_tweet_f1.tStartRefresh)
+    trials_2.addData('text_tweet_f1.stopped', text_tweet_f1.tStopRefresh)
     # check responses
-    if key_resp_image.keys in ['', [], None]:  # No response was made
-        key_resp_image.keys=None
-    trials_2.addData('key_resp_image.keys',key_resp_image.keys)
-    if key_resp_image.keys != None:  # we had a response
-        trials_2.addData('key_resp_image.rt', key_resp_image.rt)
-    trials_2.addData('key_resp_image.started', key_resp_image.tStartRefresh)
-    trials_2.addData('key_resp_image.stopped', key_resp_image.tStopRefresh)
-    # the Routine "trial" was not non-slip safe, so reset the non-slip timer
+    if key_resp_tweet.keys in ['', [], None]:  # No response was made
+        key_resp_tweet.keys=None
+    trials_2.addData('key_resp_tweet.keys',key_resp_tweet.keys)
+    if key_resp_tweet.keys != None:  # we had a response
+        trials_2.addData('key_resp_tweet.rt', key_resp_tweet.rt)
+    trials_2.addData('key_resp_tweet.started', key_resp_tweet.tStartRefresh)
+    trials_2.addData('key_resp_tweet.stopped', key_resp_tweet.tStopRefresh)
+    # the Routine "Tweet" was not non-slip safe, so reset the non-slip timer
     routineTimer.reset()
     thisExp.nextEntry()
     
