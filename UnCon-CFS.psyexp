@@ -4,7 +4,7 @@
     <Param name="Completed URL" updates="None" val="" valType="str"/>
     <Param name="Data filename" updates="None" val="u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])" valType="code"/>
     <Param name="Enable Escape" updates="None" val="True" valType="bool"/>
-    <Param name="Experiment info" updates="None" val="{'education': '', 'sex': '', 'age': '', 'participant': '', 'session': '001'}" valType="code"/>
+    <Param name="Experiment info" updates="None" val="{'Education': '', 'Age': '', 'Sex': '', 'participant': '', 'session': '001'}" valType="code"/>
     <Param name="Force stereo" updates="None" val="True" valType="bool"/>
     <Param name="Full-screen window" updates="None" val="True" valType="bool"/>
     <Param name="HTML path" updates="None" val="html" valType="str"/>
@@ -123,7 +123,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="در هر مرحله به شما یک پیام نشان‌داده خواهد شد.&amp;#10;باتوجه به میزان اهمیت پیام برای شما، &amp;#10;تصمیم بگیرد که اگر در این پیام را در یک&amp;#10;شبکه‌ی اجتماعی مشاهده می‌کردید&amp;#10;چه واکنشی نشان می‌دادید؟&amp;#10;" valType="str"/>
+        <Param name="text" updates="constant" val="در هر مرحله به شما یک پیام نشان‌داده خواهد شد.&amp;#10;باتوجه به میزان اهمیت پیام برای شما، &amp;#10;تصمیم بگیرد که اگر در این پیام را در یک&amp;#10;شبکه‌ی اجتماعی مشاهده می‌کردید&amp;#10;چه واکنشی نشان می‌دادید؟" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="float(win.size[0]/3)" valType="code"/>
       </TextComponent>
@@ -148,7 +148,7 @@
     </Routine>
     <Routine name="flash_init">
       <CodeComponent name="def_set_colors">
-        <Param name="Begin Experiment" updates="constant" val="# set_colors()&amp;#10;# Colors used during the experiment.&amp;#10;# Color variables end with _c.&amp;#10;def set_colors():&amp;#10;    global sc_c # screen color&amp;#10;    global f_c # frame color&amp;#10;    global f2_c # frame 2 color&amp;#10;    global sq_c # square color&amp;#10;    global sq_f_c # square color&amp;#10;    global t_c  # text color&amp;#10;    global c_c  # circle color    &amp;#10;    # 1 = white&amp;#10;    # -0.06 = grey 80&amp;#10;    # -0.37 = grey 120&amp;#10;    # -1 = black&amp;#10;    sc_c = [.002, .002, .002]&amp;#10;    f_c = [-1,-1,-1]&amp;#10;    f2_c = [1,1,1]&amp;#10;    sq_c = [.002, .002, .002]&amp;#10;    sq_f_c = [.002, .002, .002]&amp;#10;    t_c = [1,1,1]&amp;#10;    c_c = 'red'" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="# set_colors()&amp;#10;# Colors used during the experiment.&amp;#10;# Color variables end with _c.&amp;#10;def set_colors():&amp;#10;    global sc_c # screen color&amp;#10;    global f_c # frame color&amp;#10;    global f2_c # frame 2 color&amp;#10;    global sq_c # square color&amp;#10;    #global sq_f_c # square color&amp;#10;    #global t_c  # text color&amp;#10;    global c_c  # circle color    &amp;#10;    # 1 = white&amp;#10;    # -0.06 = grey 80&amp;#10;    # -0.37 = grey 120&amp;#10;    # -1 = black&amp;#10;    sc_c = [.002, .002, .002]&amp;#10;    f_c = [-1,-1,-1]&amp;#10;    f2_c = [1,1,1]&amp;#10;    sq_c = [.002, .002, .002]&amp;#10;    sq_f_c = [.002, .002, .002]&amp;#10;    t_c = [1,1,1]&amp;#10;    c_c = 'red'" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
@@ -163,7 +163,7 @@
         <Param name="name" updates="None" val="def_set_colors" valType="code"/>
       </CodeComponent>
       <CodeComponent name="def_set_sizes">
-        <Param name="Begin Experiment" updates="constant" val="# set_sizes()&amp;#10;# Sizes used during the experiment&amp;#10;# Size variables end with _s.&amp;#10;def set_sizes():&amp;#10;    global f_s # frame size (square) (frame surrounding the stimulus)&amp;#10;    global f2_s # frame 2 size (square) (frame surrounding the stimulus)&amp;#10;    global sq_s # square size (square where the stimulus is shown)&amp;#10;    global sq_f_s # square size (square underneath is shown)&amp;#10;    global l_s # line size (the width of the line surrounding the stimulus)&amp;#10;    global fix_s  # size of fixation crosses on top of stimuli&amp;#10;    global pic_s  # size of the face (useful when showing smaller face above/below fixation cross)&amp;#10;    f_s = 685&amp;#10;    f2_s = 665&amp;#10;    sq_s = 645&amp;#10;    sq_f_s = 645&amp;#10;    l_s = 30&amp;#10;    fix_s = 80&amp;#10;    pic_s = sq_s&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="# set_sizes()&amp;#10;# Sizes used during the experiment&amp;#10;# Size variables end with _s.&amp;#10;def set_sizes():&amp;#10;    global f_s # frame size (square) (frame surrounding the stimulus)&amp;#10;    #global f2_s # frame 2 size (square) (frame surrounding the stimulus)&amp;#10;    global sq_s # square size (square where the stimulus is shown)&amp;#10;    #global sq_f_s # square size (square underneath is shown)&amp;#10;    #global l_s # line size (the width of the line surrounding the stimulus)&amp;#10;    global fix_s  # size of fixation crosses on top of stimuli&amp;#10;    #global pic_s  # size of the face (useful when showing smaller face above/below fixation cross)&amp;#10;    global f_s_tw # frame size of textbox&amp;#10;    global f2_s_tw&amp;#10;    global sq_s_tw # square size of textbox&amp;#10;    global icon_s #size of the mouse icons&amp;#10;    global circle&amp;#10;    &amp;#10;    screen_size = np.array( win.size )&amp;#10;    f_s = np.array( [ win.size[0]/2, win.size[1] ] )&amp;#10;    sq_s = (f_s) * 0.95&amp;#10;    circle = 600&amp;#10;    fix_s = 80&amp;#10;    f_s_tw = np.array( [ win.size[0]/2, win.size[1]/2 ] )&amp;#10;    f2_s_tw = (f_s_tw) * 0.99&amp;#10;    sq_s_tw =(f_s_tw) * 0.95&amp;#10;    icon_s = 150&amp;#10;    #f_s = 685&amp;#10;    #f2_s = 665&amp;#10;    #sq_s = 645&amp;#10;    #sq_f_s = 645&amp;#10;    #l_s = 30&amp;#10;    #fix_s = 80&amp;#10;    #pic_s = sq_s&amp;#10;" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
@@ -178,7 +178,7 @@
         <Param name="name" updates="None" val="def_set_sizes" valType="code"/>
       </CodeComponent>
       <CodeComponent name="def_set_positions">
-        <Param name="Begin Experiment" updates="constant" val="# set_positions()&amp;#10;# Positions used during the experiment&amp;#10;# Position variables end with _p.&amp;#10;def set_positions():&amp;#10;  global s_p # position of the text and image stimuli (left or right according experiment settings).&amp;#10;  global f_p # position of the flash stimulus (right or left according experiment settings).&amp;#10;  global txt_above_f_p # position of the reminder for the button for above.&amp;#10;  global txt_below_f_p # position of the reminder for the button for below.&amp;#10;  global txt_above_s_p # position of the reminder for the button for above.&amp;#10;  global txt_below_s_p # position of the reminder for the button for below.&amp;#10;  global line_left_start  # start position of vertical lines sticking out of frame&amp;#10;  global line_left_end&amp;#10;  global line_right_start  &amp;#10;  global line_right_end  &amp;#10;  offset = 0 # To displace the center from the real center.&amp;#10;                  # Positive offset approach to the screen center&amp;#10;                  # while negative offset move away the screen center.&amp;#10;  center_l = offset - win.size[0]/4 # center of left part of the screen&amp;#10;  center_r = -center_l # center of right part of the screen&amp;#10;  s_p = [center_r, 0]&amp;#10;  f_p = [center_l, 0]&amp;#10;  txt_above_f_p = [center_l+100, -200]&amp;#10;  txt_below_f_p = [center_l-100, -200]&amp;#10;  txt_above_s_p = [center_r+100, -200]&amp;#10;  txt_below_s_p = [center_r-100, -200]&amp;#10;  line_left_start = (- f_s/2 - 1000, 0)&amp;#10;  line_left_end =  ( - f_s/2, 0)&amp;#10;  line_right_start = (+ f_s/2, 0) &amp;#10;  line_right_end = ( + f_s/2 + 1000, 0) &amp;#10;    &amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="# set_positions()&amp;#10;# Positions used during the experiment&amp;#10;# Position variables end with _p.&amp;#10;def set_positions():&amp;#10;  global s_p # position of the text and image stimuli (left or right according experiment settings).&amp;#10;  global f_p # position of the flash stimulus (right or left according experiment settings).&amp;#10;  global s_p_tw&amp;#10;  global f_p_tw&amp;#10;  global s_p_sq&amp;#10;  global f_p_sq&amp;#10;  global s_p_iconL&amp;#10;  global f_p_iconL&amp;#10;  global s_p_iconSh&amp;#10;  global f_p_iconSh&amp;#10;  #global txt_above_f_p # position of the reminder for the button for above.&amp;#10;  #global txt_below_f_p # position of the reminder for the button for below.&amp;#10;  #global txt_above_s_p # position of the reminder for the button for above.&amp;#10;  #global txt_below_s_p # position of the reminder for the button for below.&amp;#10;  #global line_left_start  # start position of vertical lines sticking out of frame&amp;#10;  #global line_left_end&amp;#10;  #global line_right_start  &amp;#10;  #global line_right_end  &amp;#10;  &amp;#10;  delta_x, delta_y = win.size/4&amp;#10;  quarter_centers = [ [-delta_x, +delta_y], [+delta_x, +delta_y], [+delta_x, -delta_y], [-delta_x, -delta_y] ] #centers when window is quartered.&amp;#10;  half_centers = [ [-delta_x , 0], [delta_x, 0] ] #centers when window is halved.&amp;#10;  s_p = half_centers[0]&amp;#10;  f_p = half_centers[1]&amp;#10;  s_p_tw = quarter_centers[1]&amp;#10;  f_p_tw = quarter_centers[0]&amp;#10;  s_p_sq = quarter_centers[3]&amp;#10;  f_p_sq = quarter_centers[2]&amp;#10;  &amp;#10;  like_share_dist = win.size[0]/14&amp;#10;  icon_centers = np.array([like_share_dist, 0])&amp;#10;  s_p_iconL = np.array( quarter_centers[3] ) + icon_centers&amp;#10;  #s_p_iconL= np.array([20, 20])&amp;#10;  f_p_iconL = np.array( quarter_centers[2]) + icon_centers&amp;#10;  #f_p_iconL = np.array([40, 20])&amp;#10;  s_p_iconSh = np.array( quarter_centers[3]) - icon_centers&amp;#10;  #s_p_iconSh = np.array([60, 20])&amp;#10;  f_p_iconSh = np.array( quarter_centers[2]) - icon_centers&amp;#10;  #f_p_iconSh = np.array([80, 20])&amp;#10;  &amp;#10;  #offset = 0 # To displace the center from the real center.&amp;#10;                  # Positive offset approach to the screen center&amp;#10;                  # while negative offset move away the screen center.&amp;#10;  #center_l = offset - win.size[0]/4 # center of left part of the screen&amp;#10;  #center_r = -center_l # center of right part of the screen&amp;#10;  #s_p = [center_r, 0]&amp;#10;  #f_p = [center_l, 0]&amp;#10;  #txt_above_f_p = [center_l+100, -200]&amp;#10;  #txt_below_f_p = [center_l-100, -200]&amp;#10;  #txt_above_s_p = [center_r+100, -200]&amp;#10;  #txt_below_s_p = [center_r-100, -200]&amp;#10;  #line_left_start = (- f_s/2 - 1000, 0)&amp;#10;  #line_left_end =  ( - f_s/2, 0)&amp;#10;  #line_right_start = (+ f_s/2, 0) &amp;#10;  #line_right_end = ( + f_s/2 + 1000, 0) &amp;#10;    &amp;#10;" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
@@ -193,7 +193,7 @@
         <Param name="name" updates="None" val="def_set_positions" valType="code"/>
       </CodeComponent>
       <CodeComponent name="def_set_timing">
-        <Param name="Begin Experiment" updates="constant" val="# define timings&amp;#10;def jittery():&amp;#10;    global before_t # The duration (in frames) before the stimulus presentation&amp;#10;    global fade_i_t # The duration (in frames) of the fade in of stimulus&amp;#10;    global inside_t # The duration (in frames) of a stimulus presentation beetwen fade in and out&amp;#10;    global fade_o_t # The duration (in frames) of the fade out of stimulus&amp;#10;    global after_t # The duration (in frames) after stimulus presentation&amp;#10;    global stim_t # The duration (in frames) of the stimulus (in + inside + out)&amp;#10;    global total_t # The duration (in frames) of a stimulus presentation (before + stimulus + after)&amp;#10;    global fade_i_end_t # The frame end of the fade in&amp;#10;    global fade_o_beg_t # The frame end of the inside&amp;#10;    global fade_o_end_t # The frame end of the fade out&amp;#10;    &amp;#10;    global before_t_f # The duration (in frames) before the stimulus presentation&amp;#10;    global fade_i_t_f # The duration (in frames) of the fade in of stimulus&amp;#10;    global inside_t_f # The duration (in frames) of a stimulus presentation beetwen fade in and out&amp;#10;    global fade_o_t_f # The duration (in frames) of the fade out of stimulus&amp;#10;    global after_t_f # The duration (in frames) after stimulus presentation&amp;#10;    global stim_t_f # The duration (in frames) of the stimulus (in + inside + out)&amp;#10;    global total_t_f # The duration (in frames) of a stimulus presentation (before + stimulus + after)&amp;#10;    global fade_i_end_t_f # The frame end of the fade in&amp;#10;    global fade_o_beg_t_f # The frame end of the inside&amp;#10;    global fade_o_end_t_f # The frame end of the fade out    &amp;#10;    &amp;#10;    global f_t # The duration (in frames) of a flash image presentation&amp;#10;    f_t = 6&amp;#10;    fps = 60 # frames per second&amp;#10;    &amp;#10;#    before_t = x * fps # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    &amp;#10;    # TIMES FOR OPACITY OF FACE &amp;#10;    before_t = 0 * fps&amp;#10;    fade_i_t = 1 * fps&amp;#10;    inside_t = 8 * fps&amp;#10;    fade_o_t = 0 * fps&amp;#10;    after_t = 0 * fps&amp;#10;    stim_t  = fade_i_t + inside_t + fade_o_t  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    total_t  = before_t + stim_t + after_t  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    fade_i_end_t = before_t + fade_i_t   # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    fade_o_beg_t = fade_i_end_t + inside_t  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    fade_o_end_t = before_t + stim_t  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    &amp;#10;    &amp;#10;#    # TIMES FOR OPACITY OF FLASHES&amp;#10;#    before_t_f = 0 * fps&amp;#10;#    fade_i_t_f = 0 * fps&amp;#10;#    inside_t_f = 1 * fps&amp;#10;#    fade_o_t_f = 7 * fps&amp;#10;#    after_t_f = 0 * fps&amp;#10;#    stim_t_f  = fade_i_t_f + inside_t_f + fade_o_t_f  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;#    total_t_f  = before_t_f + stim_t_f + after_t_f  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;#    fade_i_end_t_f = before_t_f + fade_i_t_f   # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;#    fade_o_beg_t_f = fade_i_end_t_f + inside_t_f  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;#    fade_o_end_t_f = before_t_f + stim_t_f  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    #f_t = 6&amp;#10;    &amp;#10;    # TIMES FOR OPACITY OF FRAME BEHIND FLASHES&amp;#10;    before_t_f = 2 * fps&amp;#10;    fade_i_t_f = 7 * fps&amp;#10;    inside_t_f = 0 * fps&amp;#10;    fade_o_t_f = 0 * fps&amp;#10;    after_t_f = 0 * fps&amp;#10;    stim_t_f  = fade_i_t_f + inside_t_f + fade_o_t_f  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    total_t_f  = before_t_f + stim_t_f + after_t_f  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    fade_i_end_t_f = before_t_f + fade_i_t_f   # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    fade_o_beg_t_f = fade_i_end_t_f + inside_t_f  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    fade_o_end_t_f = before_t_f + stim_t_f  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;" valType="extendedCode"/>
+        <Param name="Begin Experiment" updates="constant" val="# define timings&amp;#10;def jittery():&amp;#10;    global before_t # The duration (in frames) before the stimulus presentation&amp;#10;    global fade_i_t # The duration (in frames) of the fade in of stimulus&amp;#10;    global inside_t # The duration (in frames) of a stimulus presentation beetwen fade in and out&amp;#10;    global fade_o_t # The duration (in frames) of the fade out of stimulus&amp;#10;    global after_t # The duration (in frames) after stimulus presentation&amp;#10;    global stim_t # The duration (in frames) of the stimulus (in + inside + out)&amp;#10;    global total_t # The duration (in frames) of a stimulus presentation (before + stimulus + after)&amp;#10;    global fade_i_end_t # The frame end of the fade in&amp;#10;    global fade_o_beg_t # The frame end of the inside&amp;#10;    global fade_o_end_t # The frame end of the fade out&amp;#10;    &amp;#10;    global before_t_f # The duration (in frames) before the stimulus presentation&amp;#10;    global fade_i_t_f # The duration (in frames) of the fade in of stimulus&amp;#10;    global inside_t_f # The duration (in frames) of a stimulus presentation beetwen fade in and out&amp;#10;    global fade_o_t_f # The duration (in frames) of the fade out of stimulus&amp;#10;    global after_t_f # The duration (in frames) after stimulus presentation&amp;#10;    global stim_t_f # The duration (in frames) of the stimulus (in + inside + out)&amp;#10;    global total_t_f # The duration (in frames) of a stimulus presentation (before + stimulus + after)&amp;#10;    global fade_i_end_t_f # The frame end of the fade in&amp;#10;    global fade_o_beg_t_f # The frame end of the inside&amp;#10;    global fade_o_end_t_f # The frame end of the fade out    &amp;#10;    &amp;#10;    global f_t # The duration (in frames) of a flash image presentation&amp;#10;    f_t = 6&amp;#10;    fps = 10 # frames per second&amp;#10;    &amp;#10;#    before_t = x * fps # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    &amp;#10;    # TIMES FOR OPACITY OF FACE &amp;#10;    before_t = 0 * fps&amp;#10;    fade_i_t = 1 * fps&amp;#10;    inside_t = 8 * fps&amp;#10;    fade_o_t = 0 * fps&amp;#10;    after_t = 0 * fps&amp;#10;    stim_t  = fade_i_t + inside_t + fade_o_t  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    total_t  = before_t + stim_t + after_t  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    fade_i_end_t = before_t + fade_i_t   # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    fade_o_beg_t = fade_i_end_t + inside_t  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    fade_o_end_t = before_t + stim_t  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    &amp;#10;    &amp;#10;#    # TIMES FOR OPACITY OF FLASHES&amp;#10;#    before_t_f = 0 * fps&amp;#10;#    fade_i_t_f = 0 * fps&amp;#10;#    inside_t_f = 1 * fps&amp;#10;#    fade_o_t_f = 7 * fps&amp;#10;#    after_t_f = 0 * fps&amp;#10;#    stim_t_f  = fade_i_t_f + inside_t_f + fade_o_t_f  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;#    total_t_f  = before_t_f + stim_t_f + after_t_f  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;#    fade_i_end_t_f = before_t_f + fade_i_t_f   # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;#    fade_o_beg_t_f = fade_i_end_t_f + inside_t_f  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;#    fade_o_end_t_f = before_t_f + stim_t_f  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    #f_t = 6&amp;#10;    &amp;#10;    # TIMES FOR OPACITY OF FRAME BEHIND FLASHES&amp;#10;    before_t_f = 2 * fps&amp;#10;    fade_i_t_f = 7 * fps&amp;#10;    inside_t_f = 0 * fps&amp;#10;    fade_o_t_f = 0 * fps&amp;#10;    after_t_f = 0 * fps&amp;#10;    stim_t_f  = fade_i_t_f + inside_t_f + fade_o_t_f  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    total_t_f  = before_t_f + stim_t_f + after_t_f  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    fade_i_end_t_f = before_t_f + fade_i_t_f   # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    fade_o_beg_t_f = fade_i_end_t_f + inside_t_f  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;    fade_o_end_t_f = before_t_f + stim_t_f  # ATTENTION, THIS ONE NEEDS TO CHANGE AT EACH TRIAL FOR FIXATION CROSS JITTER&amp;#10;" valType="extendedCode"/>
         <Param name="Begin JS Experiment" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin JS Routine" updates="constant" val="" valType="extendedCode"/>
         <Param name="Begin Routine" updates="constant" val="" valType="extendedCode"/>
@@ -259,7 +259,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="می‌توانید استراحت کنید. &amp;#10;برای شروع کلید space را فشار دهید." valType="str"/>
+        <Param name="text" updates="constant" val="هرموقع که آماده بودید کلید &amp;#10;space &amp;#10;را فشار دهید." valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="float(win.size[0]/3)" valType="code"/>
       </TextComponent>
@@ -283,7 +283,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="می‌توانید استراحت کنید. &amp;#10;برای شروع کلید space را فشار دهید." valType="str"/>
+        <Param name="text" updates="constant" val="هرموقع که آماده بودید کلید &amp;#10;space &amp;#10;را فشار دهید." valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="float(win.size[0]/3)" valType="code"/>
       </TextComponent>
@@ -637,32 +637,7 @@
         <Param name="pos" updates="constant" val="s_p" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(f_s, f_s)" valType="code"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="units" updates="None" val="pix" valType="str"/>
-      </PolygonComponent>
-      <PolygonComponent name="frame2_s_relax">
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="fillColor" updates="constant" val="$f2_c" valType="str"/>
-        <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
-        <Param name="lineColor" updates="constant" val="$f2_c" valType="str"/>
-        <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="lineWidth" updates="constant" val="0" valType="code"/>
-        <Param name="nVertices" updates="constant" val="4" valType="int"/>
-        <Param name="name" updates="None" val="frame2_s_relax" valType="code"/>
-        <Param name="opacity" updates="constant" val="1" valType="code"/>
-        <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="constant" val="s_p" valType="code"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(f2_s, f2_s)" valType="code"/>
+        <Param name="size" updates="constant" val="f_s" valType="code"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
@@ -687,7 +662,7 @@
         <Param name="pos" updates="constant" val="s_p" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(sq_s, sq_s)" valType="code"/>
+        <Param name="size" updates="constant" val="sq_s" valType="code"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
@@ -712,32 +687,7 @@
         <Param name="pos" updates="constant" val="f_p" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(f_s, f_s)" valType="code"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="units" updates="None" val="pix" valType="str"/>
-      </PolygonComponent>
-      <PolygonComponent name="frame2_f_relax">
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="fillColor" updates="constant" val="$f2_c" valType="str"/>
-        <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
-        <Param name="lineColor" updates="constant" val="$f2_c" valType="str"/>
-        <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="lineWidth" updates="constant" val="0" valType="code"/>
-        <Param name="nVertices" updates="constant" val="4" valType="int"/>
-        <Param name="name" updates="None" val="frame2_f_relax" valType="code"/>
-        <Param name="opacity" updates="constant" val="1" valType="code"/>
-        <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="constant" val="f_p" valType="code"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(f2_s, f2_s)" valType="code"/>
+        <Param name="size" updates="constant" val="f_s" valType="code"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
@@ -762,7 +712,7 @@
         <Param name="pos" updates="constant" val="f_p" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(sq_s, sq_s)" valType="code"/>
+        <Param name="size" updates="constant" val="sq_s" valType="code"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
@@ -777,8 +727,8 @@
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="flip" updates="constant" val="" valType="str"/>
-        <Param name="font" updates="constant" val="Arial" valType="str"/>
-        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="font" updates="constant" val="Nazli" valType="str"/>
+        <Param name="languageStyle" updates="None" val="Arabic" valType="str"/>
         <Param name="letterHeight" updates="constant" val="30" valType="code"/>
         <Param name="name" updates="None" val="textrelax_f" valType="code"/>
         <Param name="opacity" updates="constant" val="1" valType="code"/>
@@ -791,7 +741,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="RELAX" valType="str"/>
+        <Param name="text" updates="constant" val="استراحت" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="float(win.size[0]/3)" valType="code"/>
       </TextComponent>
@@ -801,8 +751,8 @@
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="flip" updates="constant" val="" valType="str"/>
-        <Param name="font" updates="constant" val="Arial" valType="str"/>
-        <Param name="languageStyle" updates="None" val="LTR" valType="str"/>
+        <Param name="font" updates="constant" val="Nazli" valType="str"/>
+        <Param name="languageStyle" updates="None" val="Arabic" valType="str"/>
         <Param name="letterHeight" updates="constant" val="30" valType="code"/>
         <Param name="name" updates="None" val="textrelax_s" valType="code"/>
         <Param name="opacity" updates="constant" val="1" valType="code"/>
@@ -815,7 +765,7 @@
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
         <Param name="stopVal" updates="constant" val="" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="text" updates="constant" val="RELAX" valType="str"/>
+        <Param name="text" updates="constant" val="استراحت" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="float(win.size[0]/3)" valType="code"/>
       </TextComponent>
@@ -907,7 +857,7 @@
       </KeyboardComponent>
     </Routine>
     <Routine name="calibration">
-      <PolygonComponent name="triangle_s_sq">
+      <PolygonComponent name="circle_s_sq">
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
         <Param name="fillColor" updates="constant" val="" valType="str"/>
@@ -916,14 +866,14 @@
         <Param name="lineColor" updates="constant" val="$c_c" valType="str"/>
         <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
         <Param name="lineWidth" updates="constant" val="10" valType="code"/>
-        <Param name="nVertices" updates="constant" val="4" valType="int"/>
-        <Param name="name" updates="None" val="triangle_s_sq" valType="code"/>
+        <Param name="nVertices" updates="constant" val="65" valType="int"/>
+        <Param name="name" updates="None" val="circle_s_sq" valType="code"/>
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="ori" updates="constant" val="0" valType="code"/>
         <Param name="pos" updates="constant" val="s_p" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="shape" updates="constant" val="triangle" valType="str"/>
-        <Param name="size" updates="constant" val="(sq_s,sq_s)" valType="code"/>
+        <Param name="shape" updates="constant" val="regular polygon..." valType="str"/>
+        <Param name="size" updates="constant" val="circle" valType="code"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
@@ -948,32 +898,7 @@
         <Param name="pos" updates="constant" val="f_p" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(f_s, f_s)" valType="code"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="units" updates="None" val="pix" valType="str"/>
-      </PolygonComponent>
-      <PolygonComponent name="frame2_f_sq">
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="fillColor" updates="constant" val="$f2_c" valType="str"/>
-        <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
-        <Param name="lineColor" updates="constant" val="$f2_c" valType="str"/>
-        <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="lineWidth" updates="constant" val="0" valType="code"/>
-        <Param name="nVertices" updates="constant" val="4" valType="int"/>
-        <Param name="name" updates="None" val="frame2_f_sq" valType="code"/>
-        <Param name="opacity" updates="constant" val="1" valType="code"/>
-        <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="constant" val="f_p" valType="code"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(f2_s,f2_s)" valType="code"/>
+        <Param name="size" updates="constant" val="f_s" valType="code"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
@@ -998,7 +923,7 @@
         <Param name="pos" updates="constant" val="f_p" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(sq_s,sq_s)" valType="code"/>
+        <Param name="size" updates="constant" val="sq_s" valType="code"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
@@ -1043,37 +968,12 @@
         <Param name="pos" updates="constant" val="s_p" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(f_s, f_s)" valType="code"/>
+        <Param name="size" updates="constant" val="f_s" valType="code"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="0.5" valType="code"/>
-        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="units" updates="None" val="pix" valType="str"/>
-      </PolygonComponent>
-      <PolygonComponent name="frame2_s_i">
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="fillColor" updates="constant" val="$f2_c" valType="str"/>
-        <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
-        <Param name="lineColor" updates="constant" val="$f2_c" valType="str"/>
-        <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="lineWidth" updates="constant" val="0" valType="code"/>
-        <Param name="nVertices" updates="constant" val="4" valType="int"/>
-        <Param name="name" updates="None" val="frame2_s_i" valType="code"/>
-        <Param name="opacity" updates="constant" val="1" valType="code"/>
-        <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="constant" val="s_p" valType="code"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(f2_s, f2_s)" valType="code"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="0.5" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (frames)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="$total_t" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="units" updates="None" val="pix" valType="str"/>
       </PolygonComponent>
@@ -1093,7 +993,57 @@
         <Param name="pos" updates="constant" val="s_p" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(sq_s, sq_s)" valType="code"/>
+        <Param name="size" updates="constant" val="sq_s" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="condition" valType="str"/>
+        <Param name="stopVal" updates="constant" val="$frame_s_i.status==FINISHED" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="units" updates="None" val="pix" valType="str"/>
+      </PolygonComponent>
+      <ImageComponent name="image">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="set every repeat" val="$Image" valType="str"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="None" valType="str"/>
+        <Param name="name" updates="None" val="image" valType="code"/>
+        <Param name="opacity" updates="set every frame" val="((frameN - before_t) / fade_i_t) if (frameN &lt;fade_i_end_t) else (1 if(frameN &lt; fade_o_beg_t) else (fade_o_end_t - frameN) / fade_o_t)" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="s_p" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="size" updates="constant" val="sq_s" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="frame N" valType="str"/>
+        <Param name="startVal" updates="None" val="$before_t" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (frames)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="$stim_t" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="code"/>
+        <Param name="units" updates="None" val="from exp settings" valType="str"/>
+      </ImageComponent>
+      <PolygonComponent name="frame_f_i">
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="fillColor" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="lineColor" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="lineWidth" updates="constant" val="0" valType="code"/>
+        <Param name="nVertices" updates="constant" val="4" valType="int"/>
+        <Param name="name" updates="None" val="frame_f_i" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="f_p" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="shape" updates="constant" val="rectangle" valType="str"/>
+        <Param name="size" updates="constant" val="f_s" valType="code"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
@@ -1117,7 +1067,7 @@
         <Param name="ori" updates="constant" val="0" valType="code"/>
         <Param name="pos" updates="constant" val="f_p" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="size" updates="constant" val="(sq_s, sq_s)" valType="code"/>
+        <Param name="size" updates="constant" val="sq_s" valType="code"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
@@ -1142,31 +1092,6 @@
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="name" updates="None" val="flash" valType="code"/>
       </CodeComponent>
-      <ImageComponent name="image">
-        <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
-        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
-        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
-        <Param name="image" updates="set every repeat" val="$Image" valType="str"/>
-        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
-        <Param name="mask" updates="constant" val="None" valType="str"/>
-        <Param name="name" updates="None" val="image" valType="code"/>
-        <Param name="opacity" updates="constant" val="1" valType="code"/>
-        <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="constant" val="s_p" valType="code"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="size" updates="constant" val="pic_s" valType="code"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="0.5" valType="code"/>
-        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="texture resolution" updates="constant" val="128" valType="code"/>
-        <Param name="units" updates="None" val="from exp settings" valType="str"/>
-      </ImageComponent>
       <TextComponent name="fix_cross_stim_side">
         <Param name="color" updates="constant" val="black" valType="str"/>
         <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
@@ -1217,6 +1142,56 @@
       </TextComponent>
     </Routine>
     <Routine name="blank">
+      <PolygonComponent name="frame_s_blank">
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="fillColor" updates="constant" val="$f_c" valType="str"/>
+        <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="lineColor" updates="constant" val="$f_c" valType="str"/>
+        <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="lineWidth" updates="constant" val="0" valType="code"/>
+        <Param name="nVertices" updates="constant" val="4" valType="int"/>
+        <Param name="name" updates="None" val="frame_s_blank" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="s_p" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="shape" updates="constant" val="rectangle" valType="str"/>
+        <Param name="size" updates="constant" val="f_s" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="0.5" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="units" updates="None" val="pix" valType="str"/>
+      </PolygonComponent>
+      <PolygonComponent name="frame_f_blank">
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="fillColor" updates="constant" val="$f_c" valType="str"/>
+        <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="lineColor" updates="constant" val="$f_c" valType="str"/>
+        <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="lineWidth" updates="constant" val="0" valType="code"/>
+        <Param name="nVertices" updates="constant" val="4" valType="int"/>
+        <Param name="name" updates="None" val="frame_f_blank" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="f_p" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="shape" updates="constant" val="rectangle" valType="str"/>
+        <Param name="size" updates="constant" val="f_s" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="0.5" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="units" updates="None" val="pix" valType="str"/>
+      </PolygonComponent>
       <PolygonComponent name="backblank_f">
         <Param name="disabled" updates="None" val="False" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
@@ -1233,7 +1208,7 @@
         <Param name="pos" updates="constant" val="f_p" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(f_s, f_s)" valType="code"/>
+        <Param name="size" updates="constant" val="f_s" valType="code"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
@@ -1258,7 +1233,7 @@
         <Param name="pos" updates="constant" val="s_p" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(f_s, f_s)" valType="code"/>
+        <Param name="size" updates="constant" val="f_s" valType="code"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
@@ -1330,15 +1305,15 @@
         <Param name="name" updates="None" val="frame_tw_s" valType="code"/>
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="constant" val="s_p" valType="code"/>
+        <Param name="pos" updates="constant" val="s_p_tw" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(f_s, f_s)" valType="code"/>
+        <Param name="size" updates="constant" val="f_s_tw" valType="code"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="stopVal" updates="constant" val="5" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="units" updates="None" val="pix" valType="str"/>
       </PolygonComponent>
@@ -1355,65 +1330,15 @@
         <Param name="name" updates="None" val="frame_tw_f" valType="code"/>
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="constant" val="f_p" valType="code"/>
+        <Param name="pos" updates="constant" val="f_p_tw" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(f_s, f_s)" valType="code"/>
+        <Param name="size" updates="constant" val="f_s_tw" valType="code"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="units" updates="None" val="pix" valType="str"/>
-      </PolygonComponent>
-      <PolygonComponent name="frame2_tw_s">
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="fillColor" updates="constant" val="$f2_c" valType="str"/>
-        <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
-        <Param name="lineColor" updates="constant" val="$f2_c" valType="str"/>
-        <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="lineWidth" updates="constant" val="0" valType="code"/>
-        <Param name="nVertices" updates="constant" val="4" valType="int"/>
-        <Param name="name" updates="None" val="frame2_tw_s" valType="code"/>
-        <Param name="opacity" updates="constant" val="1" valType="code"/>
-        <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="constant" val="s_p" valType="code"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(f2_s, f2_s)" valType="code"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
-        <Param name="units" updates="None" val="from exp settings" valType="str"/>
-      </PolygonComponent>
-      <PolygonComponent name="frame2_tw_f">
-        <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="fillColor" updates="constant" val="$f2_c" valType="str"/>
-        <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
-        <Param name="lineColor" updates="constant" val="$f2_c" valType="str"/>
-        <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
-        <Param name="lineWidth" updates="constant" val="0" valType="code"/>
-        <Param name="nVertices" updates="constant" val="4" valType="int"/>
-        <Param name="name" updates="None" val="frame2_tw_f" valType="code"/>
-        <Param name="opacity" updates="constant" val="1" valType="code"/>
-        <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="constant" val="f_p" valType="code"/>
-        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
-        <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(f2_s, f2_s)" valType="code"/>
-        <Param name="startEstim" updates="None" val="" valType="code"/>
-        <Param name="startType" updates="None" val="time (s)" valType="str"/>
-        <Param name="startVal" updates="None" val="0.0" valType="code"/>
-        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="stopVal" updates="constant" val="5" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="units" updates="None" val="pix" valType="str"/>
       </PolygonComponent>
@@ -1430,15 +1355,15 @@
         <Param name="name" updates="None" val="square_tw_s" valType="code"/>
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="constant" val="s_p" valType="code"/>
+        <Param name="pos" updates="constant" val="s_p_tw" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(sq_s, sq_s)" valType="code"/>
+        <Param name="size" updates="constant" val="sq_s_tw" valType="code"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="stopVal" updates="constant" val="5" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="units" updates="None" val="pix" valType="str"/>
       </PolygonComponent>
@@ -1455,15 +1380,15 @@
         <Param name="name" updates="None" val="square_tw_f" valType="code"/>
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="constant" val="f_p" valType="code"/>
+        <Param name="pos" updates="constant" val="f_p_tw" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="shape" updates="constant" val="rectangle" valType="str"/>
-        <Param name="size" updates="constant" val="(sq_s,sq_s)" valType="code"/>
+        <Param name="size" updates="constant" val="sq_s_tw" valType="code"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="stopVal" updates="constant" val="5" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="units" updates="None" val="pix" valType="str"/>
       </PolygonComponent>
@@ -1479,13 +1404,13 @@
         <Param name="name" updates="None" val="text_tweet_s1" valType="code"/>
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="constant" val="s_p" valType="code"/>
+        <Param name="pos" updates="constant" val="s_p_tw" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="stopVal" updates="constant" val="5" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="text" updates="set every repeat" val="$Tweets" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
@@ -1503,42 +1428,243 @@
         <Param name="name" updates="None" val="text_tweet_f1" valType="code"/>
         <Param name="opacity" updates="constant" val="1" valType="code"/>
         <Param name="ori" updates="constant" val="0" valType="code"/>
-        <Param name="pos" updates="constant" val="f_p" valType="code"/>
+        <Param name="pos" updates="constant" val="f_p_tw" valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
+        <Param name="stopVal" updates="constant" val="5" valType="code"/>
         <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
         <Param name="text" updates="set every repeat" val="$Tweets&amp;#10;" valType="str"/>
         <Param name="units" updates="None" val="from exp settings" valType="str"/>
         <Param name="wrapWidth" updates="constant" val="float(win.size[0]/3)" valType="code"/>
       </TextComponent>
-      <KeyboardComponent name="key_resp_tweet">
-        <Param name="allowedKeys" updates="constant" val="'left','right'" valType="code"/>
-        <Param name="correctAns" updates="constant" val="" valType="str"/>
+      <PolygonComponent name="frame_icon_s">
         <Param name="disabled" updates="None" val="False" valType="bool"/>
-        <Param name="discard previous" updates="constant" val="True" valType="bool"/>
         <Param name="durationEstim" updates="None" val="" valType="code"/>
-        <Param name="forceEndRoutine" updates="constant" val="True" valType="bool"/>
-        <Param name="name" updates="None" val="key_resp_tweet" valType="code"/>
+        <Param name="fillColor" updates="constant" val="$f_c" valType="str"/>
+        <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="lineColor" updates="constant" val="$f_c" valType="str"/>
+        <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="lineWidth" updates="constant" val="0" valType="code"/>
+        <Param name="nVertices" updates="constant" val="4" valType="int"/>
+        <Param name="name" updates="None" val="frame_icon_s" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="s_p_sq" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="shape" updates="constant" val="rectangle" valType="str"/>
+        <Param name="size" updates="constant" val="f_s_tw" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="5" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="units" updates="None" val="pix" valType="str"/>
+      </PolygonComponent>
+      <PolygonComponent name="frame_icon_f">
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="fillColor" updates="constant" val="$f_c" valType="str"/>
+        <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="lineColor" updates="constant" val="$f_c" valType="str"/>
+        <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="lineWidth" updates="constant" val="0" valType="code"/>
+        <Param name="nVertices" updates="constant" val="4" valType="int"/>
+        <Param name="name" updates="None" val="frame_icon_f" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="f_p_sq" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="shape" updates="constant" val="rectangle" valType="str"/>
+        <Param name="size" updates="constant" val="f_s_tw" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="5" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="units" updates="None" val="pix" valType="str"/>
+      </PolygonComponent>
+      <PolygonComponent name="square_icon_s">
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="fillColor" updates="constant" val="$sc_c" valType="str"/>
+        <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="lineColor" updates="constant" val="$sc_c" valType="str"/>
+        <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="lineWidth" updates="constant" val="0" valType="code"/>
+        <Param name="nVertices" updates="constant" val="4" valType="int"/>
+        <Param name="name" updates="None" val="square_icon_s" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="s_p_sq" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="shape" updates="constant" val="rectangle" valType="str"/>
+        <Param name="size" updates="constant" val="sq_s_tw" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="5" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="units" updates="None" val="pix" valType="str"/>
+      </PolygonComponent>
+      <PolygonComponent name="square_icon_f">
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="fillColor" updates="constant" val="$sc_c" valType="str"/>
+        <Param name="fillColorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="lineColor" updates="constant" val="$sc_c" valType="str"/>
+        <Param name="lineColorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="lineWidth" updates="constant" val="0" valType="code"/>
+        <Param name="nVertices" updates="constant" val="4" valType="int"/>
+        <Param name="name" updates="None" val="square_icon_f" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="f_p_sq" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="shape" updates="constant" val="rectangle" valType="str"/>
+        <Param name="size" updates="constant" val="sq_s_tw" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="5" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="units" updates="None" val="pix" valType="str"/>
+      </PolygonComponent>
+      <ImageComponent name="logoL_s">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="set every repeat" val="like.png" valType="str"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="None" valType="str"/>
+        <Param name="name" updates="None" val="logoL_s" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="s_p_iconL" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="size" updates="constant" val="icon_s" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="5" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="code"/>
+        <Param name="units" updates="None" val="pix" valType="str"/>
+      </ImageComponent>
+      <ImageComponent name="logoL_f">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="set every repeat" val="like.png" valType="str"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="None" valType="str"/>
+        <Param name="name" updates="None" val="logoL_f" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="f_p_iconL" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="size" updates="constant" val="icon_s" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="5" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="code"/>
+        <Param name="units" updates="None" val="pix" valType="str"/>
+      </ImageComponent>
+      <ImageComponent name="logoSh_s">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="set every repeat" val="share.png" valType="str"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="None" valType="str"/>
+        <Param name="name" updates="None" val="logoSh_s" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="s_p_iconSh" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="size" updates="constant" val="icon_s" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="5" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="code"/>
+        <Param name="units" updates="None" val="pix" valType="str"/>
+      </ImageComponent>
+      <ImageComponent name="logoSh_f">
+        <Param name="color" updates="constant" val="$[1,1,1]" valType="str"/>
+        <Param name="colorSpace" updates="constant" val="rgb" valType="str"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="flipHoriz" updates="constant" val="False" valType="bool"/>
+        <Param name="flipVert" updates="constant" val="False" valType="bool"/>
+        <Param name="image" updates="set every repeat" val="share.png" valType="str"/>
+        <Param name="interpolate" updates="constant" val="linear" valType="str"/>
+        <Param name="mask" updates="constant" val="None" valType="str"/>
+        <Param name="name" updates="None" val="logoSh_f" valType="code"/>
+        <Param name="opacity" updates="constant" val="1" valType="code"/>
+        <Param name="ori" updates="constant" val="0" valType="code"/>
+        <Param name="pos" updates="constant" val="f_p_iconSh" valType="code"/>
+        <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
+        <Param name="size" updates="constant" val="icon_s" valType="code"/>
+        <Param name="startEstim" updates="None" val="" valType="code"/>
+        <Param name="startType" updates="None" val="time (s)" valType="str"/>
+        <Param name="startVal" updates="None" val="0.0" valType="code"/>
+        <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
+        <Param name="stopVal" updates="constant" val="5" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="True" valType="bool"/>
+        <Param name="texture resolution" updates="constant" val="128" valType="code"/>
+        <Param name="units" updates="None" val="pix" valType="str"/>
+      </ImageComponent>
+      <MouseComponent name="mouse">
+        <Param name="clickable" updates="constant" val="logoL_f, logoL_s, logoSh_f, logoSh_s" valType="code"/>
+        <Param name="disabled" updates="None" val="False" valType="bool"/>
+        <Param name="durationEstim" updates="None" val="" valType="code"/>
+        <Param name="forceEndRoutineOnPress" updates="constant" val="valid click" valType="str"/>
+        <Param name="name" updates="None" val="mouse" valType="code"/>
+        <Param name="newClicksOnly" updates="constant" val="True" valType="bool"/>
+        <Param name="saveMouseState" updates="None" val="on click" valType="str"/>
+        <Param name="saveParamsClickable" updates="constant" val="name," valType="code"/>
         <Param name="saveStartStop" updates="None" val="True" valType="bool"/>
         <Param name="startEstim" updates="None" val="" valType="code"/>
         <Param name="startType" updates="None" val="time (s)" valType="str"/>
         <Param name="startVal" updates="None" val="0.0" valType="code"/>
         <Param name="stopType" updates="None" val="duration (s)" valType="str"/>
-        <Param name="stopVal" updates="constant" val="" valType="code"/>
-        <Param name="store" updates="constant" val="last key" valType="str"/>
-        <Param name="storeCorrect" updates="constant" val="False" valType="bool"/>
-        <Param name="syncScreenRefresh" updates="constant" val="True" valType="bool"/>
-      </KeyboardComponent>
+        <Param name="stopVal" updates="constant" val="5" valType="code"/>
+        <Param name="syncScreenRefresh" updates="None" val="False" valType="bool"/>
+        <Param name="timeRelativeTo" updates="constant" val="mouse onset" valType="str"/>
+      </MouseComponent>
     </Routine>
   </Routines>
   <Flow>
     <Routine name="flash_init"/>
     <Routine name="Instructions"/>
     <Routine name="calibration"/>
+    <Routine name="pause"/>
     <LoopInitiator loopType="TrialHandler" name="trials_2">
       <Param name="Selected rows" updates="None" val="" valType="str"/>
       <Param name="conditions" updates="None" val="[OrderedDict([('Random', 0.925786769257543), ('Image', '4aNeutral.png'), ('Type', 'without cfs'), ('Tweets', 'آدم بدا')]), OrderedDict([('Random', 0.467454223613678), ('Image', '7aNeutral.png'), ('Type', 'incongruent'), ('Tweets', 'آها')]), OrderedDict([('Random', 0.334033342194694), ('Image', '5aNeutral.png'), ('Type', 'without cfs'), ('Tweets', 'جالبه')]), OrderedDict([('Random', 0.32127829206197), ('Image', '9aNeutral.png'), ('Type', 'congruent'), ('Tweets', 'چای بیار')]), OrderedDict([('Random', 0.372574348050033), ('Image', '10aNeutral.png'), ('Type', 'without cfs'), ('Tweets', 'خوبی')]), OrderedDict([('Random', 0.629945633400008), ('Image', '3aNeutral.png'), ('Type', 'congruent'), ('Tweets', 'رفتم کافه')]), OrderedDict([('Random', 0.217075611264131), ('Image', '2aNeutral.png'), ('Type', 'incongruent'), ('Tweets', 'زرذ')]), OrderedDict([('Random', 0.213269670053808), ('Image', '8aNeutral.png'), ('Type', 'without cfs'), ('Tweets', 'زندگی همینه')]), OrderedDict([('Random', 0.345904004670104), ('Image', '0aNeutral.png'), ('Type', 'congruent'), ('Tweets', 'سلام')]), OrderedDict([('Random', 0.740834377721891), ('Image', '6aNeutral.png'), ('Type', 'incongruent'), ('Tweets', 'که این طور')]), OrderedDict([('Random', 0.637723186176978), ('Image', '1aNeutral.png'), ('Type', 'congruent'), ('Tweets', 'من هم خوبم')])]" valType="str"/>
@@ -1550,7 +1676,6 @@
       <Param name="name" updates="None" val="trials_2" valType="code"/>
       <Param name="random seed" updates="None" val="" valType="code"/>
     </LoopInitiator>
-    <Routine name="pause"/>
     <Routine name="Relax"/>
     <Routine name="cfs"/>
     <Routine name="blank"/>
